@@ -24,12 +24,9 @@ export const Route = createFileRoute("/")({
 
 function Logo({ className = "" }: { className?: string }) {
   return (
-    <div className={`flex items-center gap-2 ${className}`}>
-      <img src={logoAsset.url} alt="A&M Consultoria" className="h-10 w-10 object-contain" />
-      <div className="leading-tight">
-        <div className="font-extrabold text-lg tracking-tight">A&amp;M</div>
-        <div className="text-[9px] font-semibold tracking-[0.15em] text-muted-foreground">CONSULTORIA · SST</div>
-      </div>
+    <div className={`flex items-center ${className}`}>
+      <img src={logoAsset.url} alt="A&M Consultoria Ambiental e SST" className="h-12 w-12 object-contain" />
+      <span className="sr-only">A&amp;M Consultoria Ambiental e SST</span>
     </div>
   );
 }
