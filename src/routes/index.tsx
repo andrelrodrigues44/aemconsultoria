@@ -54,7 +54,7 @@ function Index() {
   const valores = [
     "Ética e Transparência",
     "Excelência Técnica",
-    "Segurança em 1º lugar",
+    "Segurança como valor",
     "Sustentabilidade",
     "Foco em Resultados",
   ];
@@ -185,12 +185,12 @@ function Index() {
             {/* Promessa */}
             <div className="mt-8 rounded-2xl bg-brand-gradient text-white p-6 lg:p-8 shadow-xl relative overflow-hidden">
               <Leaf className="absolute -right-4 -bottom-4 h-32 w-32 text-white/5" />
-              <div className="flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-brand">
+              <div className="flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-white/80">
                 <Leaf className="h-4 w-4" /> PROMESSA DA MARCA
               </div>
-              <p className="mt-3 text-lg lg:text-xl font-medium leading-snug">
+              <p className="mt-3 text-lg lg:text-xl font-medium leading-snug text-white">
                 Oferecer soluções práticas e personalizadas que geram conformidade, protegem pessoas e constroem um{" "}
-                <span className="font-bold text-brand">futuro sustentável.</span>
+                <span className="font-bold text-white underline decoration-white/50 underline-offset-4">futuro sustentável.</span>
               </p>
             </div>
           </div>
