@@ -68,11 +68,11 @@ function Index() {
   ];
 
   const servicos = [
-    { icon: Leaf, label: "Meio Ambiente" },
-    { icon: HardHat, label: "SST" },
-    { icon: Scale, label: "Legislação" },
-    { icon: TrendingUp, label: "Gestão" },
-    { icon: Users, label: "Pessoas" },
+    { icon: Leaf, label: "Meio Ambiente", desc: "Licenciamento e regularização ambiental." },
+    { icon: HardHat, label: "SST", desc: "Treinamentos, RAC, HRN, PGR e LTCAT." },
+    { icon: Scale, label: "Legislação", desc: "Auditorias de conformidade legal." },
+    { icon: TrendingUp, label: "Gestão", desc: "Organização documental e processos." },
+    { icon: Users, label: "Pessoas", desc: "Avaliação de riscos psicossociais." },
   ];
 
   return (
