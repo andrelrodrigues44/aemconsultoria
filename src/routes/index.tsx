@@ -127,7 +127,7 @@ function Index() {
           <div className="relative">
             <div className="absolute -inset-4 bg-[color:var(--brand-light)]/10 rounded-3xl blur-2xl" />
             <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl aspect-[4/5] max-w-md mx-auto">
-              <img src={professionalAsset.url} alt="Consultor A&M em campo" className="h-full w-full object-cover" />
+              <img src={handshakeAsset.url} alt="Aperto de mãos simbolizando acordo e parceria A&M" className="h-full w-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--brand-dark)]/60 via-transparent to-transparent" />
             </div>
             {/* floating quote */}
