@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Leaf, HardHat, ClipboardCheck, TrendingUp, ShieldCheck, Users, Scale, Target, CheckCircle2, ArrowRight, MessageCircle, Quote } from "lucide-react";
 import professionalAsset from "@/assets/am-professional.png.asset.json";
 
-const WHATSAPP_URL = "#"; // [LINK DO WHATSAPP]
+const WHATSAPP_URL = "https://wa.me/5531992293261";
 
 export const Route = createFileRoute("/")({
   head: () => ({
