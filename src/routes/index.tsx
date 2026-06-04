@@ -163,7 +163,7 @@ function Index() {
               </div>
               <div className="absolute -bottom-6 -right-6 bg-brand-gradient text-white p-5 rounded-xl shadow-xl max-w-[200px]">
                 <div className="text-3xl font-extrabold">+10</div>
-                <div className="text-xs font-medium opacity-90">anos transformando conformidade em resultado</div>
+                <div className="text-xs font-medium opacity-90">profissional com mais +10 anos transformando conformidade em resultado</div>
               </div>
             </div>
           </div>
