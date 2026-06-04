@@ -101,11 +101,11 @@ function Index() {
         <div className="absolute -right-32 -top-32 h-[500px] w-[500px] rounded-full bg-[color:var(--brand-light)]/20 blur-3xl" />
         <div className="mx-auto max-w-7xl px-5 lg:px-8 pt-16 pb-20 lg:pt-24 lg:pb-28 grid lg:grid-cols-2 gap-12 items-center relative">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/15 px-4 py-1.5 text-sm font-semibold text-white shadow-sm backdrop-blur-sm">
-              <ShieldCheck className="h-4 w-4 text-[color:var(--brand-light)]" />
+            <div className="inline-flex items-center gap-3 rounded-full border-2 border-white/50 bg-white/20 px-6 py-3 text-lg sm:text-xl font-bold text-white shadow-xl backdrop-blur-md">
+              <ShieldCheck className="h-6 w-6 text-[color:var(--brand-light)]" strokeWidth={2.5} />
               A&amp;M Consultoria Ambiental e SST
             </div>
-            <div className="mt-3 text-xs font-medium tracking-wide text-white/80">
+            <div className="mt-4 text-sm sm:text-base font-semibold tracking-wide text-white">
               Meio Ambiente · Segurança do Trabalho
             </div>
             <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05]">
