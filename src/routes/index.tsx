@@ -175,7 +175,7 @@ function Index() {
           </div>
 
           <div className="lg:col-span-7 order-1 lg:order-2">
-            <div className="text-xs font-bold tracking-[0.2em] text-[color:var(--brand)]">CONCEITO DA MARCA</div>
+            
             <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight">
               Confiança, técnica e <span className="text-[color:var(--brand)]">propósito</span> em cada entrega.
             </h2>
@@ -207,7 +207,7 @@ function Index() {
       <section id="pilares" className="py-20 lg:py-24 bg-secondary/50 border-y border-border">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="max-w-2xl">
-            <div className="text-xs font-bold tracking-[0.2em] text-[color:var(--brand)]">ÍCONES DA MARCA</div>
+            
             <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold">Áreas em que atuamos</h2>
             <p className="mt-3 text-muted-foreground">Estratégia técnica que conecta meio ambiente, pessoas e operação.</p>
           </div>
