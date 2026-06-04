@@ -127,7 +127,7 @@ function Index() {
           <div className="relative">
             <div className="absolute -inset-4 bg-[color:var(--brand-light)]/10 rounded-3xl blur-2xl" />
             <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl aspect-[4/5] max-w-md mx-auto">
-              <img src={handshakeAsset.url} alt="Aperto de mãos simbolizando acordo e parceria A&M" className="h-full w-full object-cover" />
+              <img src={professionalAsset.url} alt="Consultor A&M" className="h-full w-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--brand-dark)]/60 via-transparent to-transparent" />
             </div>
             {/* floating quote */}
@@ -289,7 +289,7 @@ function Index() {
             <div className="relative max-w-sm mx-auto">
               <div className="absolute -inset-4 bg-[color:var(--brand-light)]/20 rounded-3xl blur-2xl" />
               <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl aspect-[4/5]">
-                <img src={professionalAsset.url} alt="Consultor A&M pronto para atender" className="h-full w-full object-cover" />
+                <img src={handshakeAsset.url} alt="Aperto de mãos simbolizando acordo e parceria A&M" className="h-full w-full object-cover" />
                 <div className="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-[color:var(--brand-dark)] to-transparent">
                   <div className="text-sm font-bold">A&amp;M Consultoria</div>
                   <div className="text-xs text-white/80">Meio Ambiente e SST</div>
