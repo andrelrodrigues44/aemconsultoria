@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Leaf, HardHat, ClipboardCheck, TrendingUp, ShieldCheck, Users, Scale, Target, CheckCircle2, ArrowRight, MessageCircle, Quote } from "lucide-react";
 import professionalAsset from "@/assets/am-professional.png.asset.json";
+import heroAsset from "@/assets/am-hero.png.asset.json";
 import handshakeAsset from "@/assets/handshake.jpg.asset.json";
 import logoAsset from "@/assets/logo.png.asset.json";
 
