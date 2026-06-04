@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Leaf, HardHat, ClipboardCheck, TrendingUp, ShieldCheck, Users, Scale, Target, CheckCircle2, ArrowRight, MessageCircle, Quote } from "lucide-react";
 import professionalAsset from "@/assets/am-professional.png.asset.json";
+import heroAsset from "@/assets/am-hero.png.asset.json";
 import handshakeAsset from "@/assets/handshake.jpg.asset.json";
 import logoAsset from "@/assets/logo.png.asset.json";
 
@@ -127,7 +128,7 @@ function Index() {
           <div className="relative">
             <div className="absolute -inset-4 bg-[color:var(--brand-light)]/10 rounded-3xl blur-2xl" />
             <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl aspect-[4/5] max-w-md mx-auto">
-              <img src={professionalAsset.url} alt="Consultor A&M" className="h-full w-full object-cover" />
+              <img src={heroAsset.url} alt="Consultor A&M em escritório com logo da marca" className="h-full w-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--brand-dark)]/60 via-transparent to-transparent" />
             </div>
             {/* floating quote */}
