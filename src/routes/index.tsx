@@ -54,7 +54,7 @@ function Index() {
   const valores = [
     "Ética e Transparência",
     "Excelência Técnica",
-    "Segurança em 1º lugar",
+    "Segurança como valor",
     "Sustentabilidade",
     "Foco em Resultados",
   ];
