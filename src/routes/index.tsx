@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Leaf, HardHat, ClipboardCheck, TrendingUp, ShieldCheck, Users, Scale, Target, CheckCircle2, ArrowRight, MessageCircle, Quote } from "lucide-react";
 import professionalAsset from "@/assets/am-professional.png.asset.json";
+import logoAsset from "@/assets/logo.png.asset.json";
 
 const WHATSAPP_URL = "https://wa.me/5531992293261";
 
@@ -24,9 +25,7 @@ export const Route = createFileRoute("/")({
 function Logo({ className = "" }: { className?: string }) {
   return (
     <div className={`flex items-center gap-2 ${className}`}>
-      <div className="relative h-9 w-9 flex items-center justify-center rounded-md bg-brand-gradient shadow-md">
-        <Leaf className="h-5 w-5 text-white" strokeWidth={2.5} />
-      </div>
+      <img src={logoAsset.url} alt="A&M Consultoria" className="h-10 w-10 object-contain" />
       <div className="leading-tight">
         <div className="font-extrabold text-lg tracking-tight">A&amp;M</div>
         <div className="text-[9px] font-semibold tracking-[0.15em] text-muted-foreground">CONSULTORIA · SST</div>
