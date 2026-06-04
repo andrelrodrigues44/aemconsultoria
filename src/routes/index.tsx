@@ -211,12 +211,13 @@ function Index() {
           </div>
 
           <div className="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-            {servicos.map(({ icon: Icon, label }) => (
+            {servicos.map(({ icon: Icon, label, desc }) => (
               <div key={label} className="group bg-card border border-border rounded-xl p-6 text-center hover:border-[color:var(--brand)] hover:shadow-lg transition-all">
                 <div className="mx-auto mb-4 inline-flex h-14 w-14 items-center justify-center rounded-full border-2 border-[color:var(--brand)]/30 text-[color:var(--brand)] group-hover:bg-brand-gradient group-hover:text-white group-hover:border-transparent transition-all">
                   <Icon className="h-6 w-6" strokeWidth={2.2} />
                 </div>
                 <div className="text-xs font-bold tracking-[0.15em] text-muted-foreground group-hover:text-foreground transition">{label.toUpperCase()}</div>
+                <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{desc}</p>
               </div>
             ))}
           </div>
