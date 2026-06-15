@@ -348,7 +348,7 @@ function Index() {
               <div className="font-semibold text-white">A&amp;M Consultoria Ambiental e SST</div>
               <div className="flex items-center gap-2"><MapPin className="h-4 w-4 text-brand shrink-0" /> Barão de Cocais · Minas Gerais</div>
               <div>CNPJ: <span className="text-white/60">[a definir]</span></div>
-              <div>E-mail: <span className="text-white/60">[a definir]</span></div>
+              <div>E-mail: <span className="text-white/60">contato@aemconsult.com.br</span></div>
             </div>
           </div>
           <div className="text-sm">
@@ -369,7 +369,7 @@ function Index() {
                 </a>
               </li>
               <li className="inline-flex items-center gap-2">
-                <Mail className="h-4 w-4 text-brand" /> E-mail: <span className="text-white/60">[a definir]</span>
+                <Mail className="h-4 w-4 text-brand" /> E-mail: <span className="text-white/60">contato@aemconsult.com.br</span>
               </li>
               <li>
                 <a href="https://instagram.com/aem.consultoria_ambiental_sst" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-brand transition">
