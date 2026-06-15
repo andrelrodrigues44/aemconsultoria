@@ -344,7 +344,7 @@ function Index() {
             <div className="mt-5 space-y-1.5 text-sm">
               <div className="font-semibold text-white">A&amp;M Consultoria Ambiental e SST</div>
               <div className="flex items-center gap-2"><MapPin className="h-4 w-4 text-brand shrink-0" /> Contagem · Minas Gerais</div>
-              <div>CNPJ: <span className="text-white/60">[a definir]</span></div>
+              
               <div>E-mail: <span className="text-white/60">contato@aemconsult.com.br</span></div>
             </div>
           </div>
