@@ -76,7 +76,7 @@ function Index() {
 
   const servicos = [
     { icon: Leaf, label: "Meio Ambiente", desc: "Licenciamento e regularização ambiental." },
-    { icon: HardHat, label: "SST", desc: "Treinamentos, RAC, HRN, PGR e LTCAT." },
+    { icon: HardHat, label: "SST", desc: "Treinamentos, análise de risco (RAC/HRN), Programa de Gerenciamento de Riscos (PGR) e laudos técnicos (LTCAT)." },
     { icon: Scale, label: "Legislação", desc: "Auditorias de conformidade legal." },
     { icon: TrendingUp, label: "Gestão", desc: "Organização documental e processos." },
     { icon: Users, label: "Pessoas", desc: "Avaliação de riscos psicossociais." },
