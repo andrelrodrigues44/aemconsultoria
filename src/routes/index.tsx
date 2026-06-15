@@ -126,7 +126,7 @@ function Index() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <CTA><MessageCircle className="h-4 w-4" /> Falar com especialista</CTA>
-              <CTA variant="outline">Conhecer soluções <ArrowRight className="h-4 w-4" /></CTA>
+              <CTA variant="outline" href="#pilares">Conhecer soluções <ArrowRight className="h-4 w-4" /></CTA>
             </div>
           </div>
 
