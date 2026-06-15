@@ -33,13 +33,18 @@ function Logo({ className = "" }: { className?: string }) {
   );
 }
 
-function CTA({ children, variant = "primary", className = "" }: { children: React.ReactNode; variant?: "primary" | "outline"; className?: string }) {
+function CTA({ children, variant = "primary", className = "", href = WHATSAPP_URL }: { children: React.ReactNode; variant?: "primary" | "outline"; className?: string; href?: string }) {
   const base = "inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0";
   const styles = variant === "primary"
     ? "bg-brand-gradient text-white shadow-lg shadow-[color:var(--brand-dark)]/25 hover:shadow-xl"
     : "border border-white/30 text-white hover:bg-white/10";
+  const isExternal = href.startsWith("http");
   return (
-    <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className={`${base} ${styles} ${className}`}>
+    <a
+      href={href}
+      {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+      className={`${base} ${styles} ${className}`}
+    >
       {children}
     </a>
   );
