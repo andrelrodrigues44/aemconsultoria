@@ -219,12 +219,14 @@ function Index() {
             </p>
           </div>
 
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
               { icon: Award, title: "Auditor Líder ISO 45001", desc: "Sistemas de Gestão de Segurança e Saúde Ocupacional." },
               { icon: ShieldCheck, title: "Auditor ISO 14001", desc: "Sistemas de Gestão Ambiental." },
               { icon: HardHat, title: "+15 anos em campo", desc: "Mineração e indústria automobilística, do chão de operação à gestão." },
               { icon: BookOpen, title: "Formação continuada", desc: "Pós em Segurança do Trabalho; especialização em Higiene Ocupacional em curso." },
+              { icon: GraduationCap, title: "Técnico em Segurança do Trabalho", desc: "Formação técnica especializada em prevenção e proteção ao trabalhador." },
+              { icon: GraduationCap, title: "Engenharia Ambiental", desc: "Formação superior em gestão, preservação e recuperação ambiental." },
             ].map(({ icon: Icon, title, desc }) => (
               <div key={title} className="bg-card border border-border rounded-xl p-6 hover:border-[color:var(--brand)] hover:shadow-lg transition-all">
                 <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-brand-gradient text-white mb-4 shadow-md">
