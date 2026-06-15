@@ -344,23 +344,57 @@ function Index() {
             <p className="mt-4 text-sm leading-relaxed max-w-xs">
               Consultoria ambiental e de segurança do trabalho. Transformando conformidade em valor sustentável.
             </p>
+            <div className="mt-5 space-y-1.5 text-sm">
+              <div className="font-semibold text-white">A&amp;M Consultoria Ambiental e SST</div>
+              <div className="flex items-center gap-2"><MapPin className="h-4 w-4 text-brand shrink-0" /> Barão de Cocais · Minas Gerais</div>
+              <div>CNPJ: <span className="text-white/60">[a definir]</span></div>
+              <div>E-mail: <span className="text-white/60">[a definir]</span></div>
+            </div>
           </div>
           <div className="text-sm">
             <div className="font-bold text-white mb-3">Navegação</div>
             <ul className="space-y-2">
               <li><a href="#sobre" className="hover:text-brand transition">Sobre</a></li>
+              <li><a href="#credenciais" className="hover:text-brand transition">Credenciais</a></li>
               <li><a href="#pilares" className="hover:text-brand transition">Soluções</a></li>
               <li><a href="#valores" className="hover:text-brand transition">Valores</a></li>
             </ul>
           </div>
           <div className="text-sm">
             <div className="font-bold text-white mb-3">Contato</div>
+            <ul className="space-y-2.5">
+              <li>
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-brand transition">
+                  <MessageCircle className="h-4 w-4 text-brand" /> WhatsApp: (31) 99229-3261
+                </a>
+              </li>
+              <li className="inline-flex items-center gap-2">
+                <Mail className="h-4 w-4 text-brand" /> E-mail: <span className="text-white/60">[a definir]</span>
+              </li>
+              <li>
+                <a href="https://instagram.com/aem.consultoria_ambiental_sst" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-brand transition">
+                  <Instagram className="h-4 w-4 text-brand" /> @aem.consultoria_ambiental_sst
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-brand transition">
+                  <Linkedin className="h-4 w-4 text-brand" /> LinkedIn
+                </a>
+              </li>
+            </ul>
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
-               className="inline-flex items-center gap-2 rounded-md bg-brand-gradient px-4 py-2 text-white font-semibold hover:shadow-lg transition">
-              <MessageCircle className="h-4 w-4" /> WhatsApp
+               className="mt-5 inline-flex items-center gap-2 rounded-md bg-brand-gradient px-4 py-2 text-white font-semibold hover:shadow-lg transition">
+              <MessageCircle className="h-4 w-4" /> Falar no WhatsApp
             </a>
           </div>
         </div>
+        <div className="border-t border-white/10">
+          <div className="mx-auto max-w-7xl px-5 lg:px-8 py-5 text-xs text-white/50 flex flex-wrap justify-between gap-2">
+            <span>© {new Date().getFullYear()} A&amp;M Consultoria Ambiental e SST. Todos os direitos reservados.</span>
+            <span>Meio Ambiente · Segurança do Trabalho</span>
+          </div>
+        </div>
+      </footer>
         <div className="border-t border-white/10">
           <div className="mx-auto max-w-7xl px-5 lg:px-8 py-5 text-xs text-white/50 flex flex-wrap justify-between gap-2">
             <span>© {new Date().getFullYear()} A&amp;M Consultoria Ambiental e SST. Todos os direitos reservados.</span>
