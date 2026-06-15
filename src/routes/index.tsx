@@ -282,7 +282,7 @@ function Index() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <CTA><MessageCircle className="h-4 w-4" /> Chamar no WhatsApp</CTA>
-              <CTA variant="outline">Ver soluções <ArrowRight className="h-4 w-4" /></CTA>
+              <CTA variant="outline" href="#pilares">Ver soluções <ArrowRight className="h-4 w-4" /></CTA>
             </div>
             <div className="mt-8 flex flex-wrap gap-6 text-sm text-white/70">
               <div className="flex items-center gap-2"><ShieldCheck className="h-4 w-4 text-brand" /> Responsabilidade técnica</div>
