@@ -208,6 +208,36 @@ function Index() {
         </div>
       </section>
 
+      {/* CREDENCIAIS ISO */}
+      <section id="credenciais" className="py-20 lg:py-24 bg-secondary/30 border-y border-border">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+          <div className="max-w-2xl">
+            <div className="text-xs font-bold tracking-[0.2em] text-[color:var(--brand)]">CREDENCIAIS</div>
+            <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold">Autoridade técnica comprovada</h2>
+            <p className="mt-3 text-muted-foreground leading-relaxed">
+              Conformidade conduzida por quem audita pelos mesmos padrões que as certificadoras exigem.
+            </p>
+          </div>
+
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              { icon: Award, title: "Auditor Líder ISO 45001", desc: "Sistemas de Gestão de Segurança e Saúde Ocupacional." },
+              { icon: ShieldCheck, title: "Auditor ISO 14001", desc: "Sistemas de Gestão Ambiental." },
+              { icon: HardHat, title: "+15 anos em campo", desc: "Mineração e indústria automobilística, do chão de operação à gestão." },
+              { icon: BookOpen, title: "Formação continuada", desc: "Pós em Segurança do Trabalho; especialização em Higiene Ocupacional em curso." },
+            ].map(({ icon: Icon, title, desc }) => (
+              <div key={title} className="bg-card border border-border rounded-xl p-6 hover:border-[color:var(--brand)] hover:shadow-lg transition-all">
+                <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-brand-gradient text-white mb-4 shadow-md">
+                  <Icon className="h-6 w-6" strokeWidth={2.2} />
+                </div>
+                <h3 className="font-bold text-base leading-tight">{title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* PILARES / SOLUÇÕES */}
       <section id="pilares" className="py-20 lg:py-24 bg-secondary/50 border-y border-border">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
