@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Leaf, HardHat, ClipboardCheck, TrendingUp, ShieldCheck, Users, Scale, Target, CheckCircle2, ArrowRight, MessageCircle, Quote } from "lucide-react";
+import { Leaf, HardHat, ClipboardCheck, TrendingUp, ShieldCheck, Users, Scale, Target, CheckCircle2, ArrowRight, MessageCircle, Quote, Award, BookOpen, Mail, Instagram, Linkedin, MapPin } from "lucide-react";
 import professionalAsset from "@/assets/am-professional.png.asset.json";
 import heroAsset from "@/assets/am-hero.png.asset.json";
 import handshakeAsset from "@/assets/handshake.jpg.asset.json";
@@ -33,13 +33,18 @@ function Logo({ className = "" }: { className?: string }) {
   );
 }
 
-function CTA({ children, variant = "primary", className = "" }: { children: React.ReactNode; variant?: "primary" | "outline"; className?: string }) {
+function CTA({ children, variant = "primary", className = "", href = WHATSAPP_URL }: { children: React.ReactNode; variant?: "primary" | "outline"; className?: string; href?: string }) {
   const base = "inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0";
   const styles = variant === "primary"
     ? "bg-brand-gradient text-white shadow-lg shadow-[color:var(--brand-dark)]/25 hover:shadow-xl"
     : "border border-white/30 text-white hover:bg-white/10";
+  const isExternal = href.startsWith("http");
   return (
-    <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className={`${base} ${styles} ${className}`}>
+    <a
+      href={href}
+      {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+      className={`${base} ${styles} ${className}`}
+    >
       {children}
     </a>
   );
@@ -71,7 +76,7 @@ function Index() {
 
   const servicos = [
     { icon: Leaf, label: "Meio Ambiente", desc: "Licenciamento e regularização ambiental." },
-    { icon: HardHat, label: "SST", desc: "Treinamentos, RAC, HRN, PGR e LTCAT." },
+    { icon: HardHat, label: "SST", desc: "Treinamentos, análise de risco (RAC/HRN), Programa de Gerenciamento de Riscos (PGR) e laudos técnicos (LTCAT)." },
     { icon: Scale, label: "Legislação", desc: "Auditorias de conformidade legal." },
     { icon: TrendingUp, label: "Gestão", desc: "Organização documental e processos." },
     { icon: Users, label: "Pessoas", desc: "Avaliação de riscos psicossociais." },
@@ -121,7 +126,7 @@ function Index() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <CTA><MessageCircle className="h-4 w-4" /> Falar com especialista</CTA>
-              <CTA variant="outline">Conhecer soluções <ArrowRight className="h-4 w-4" /></CTA>
+              <CTA variant="outline" href="#pilares">Conhecer soluções <ArrowRight className="h-4 w-4" /></CTA>
             </div>
           </div>
 
@@ -203,6 +208,36 @@ function Index() {
         </div>
       </section>
 
+      {/* CREDENCIAIS ISO */}
+      <section id="credenciais" className="py-20 lg:py-24 bg-secondary/30 border-y border-border">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+          <div className="max-w-2xl">
+            <div className="text-xs font-bold tracking-[0.2em] text-[color:var(--brand)]">CREDENCIAIS</div>
+            <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold">Autoridade técnica comprovada</h2>
+            <p className="mt-3 text-muted-foreground leading-relaxed">
+              Conformidade conduzida por quem audita pelos mesmos padrões que as certificadoras exigem.
+            </p>
+          </div>
+
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              { icon: Award, title: "Auditor Líder ISO 45001", desc: "Sistemas de Gestão de Segurança e Saúde Ocupacional." },
+              { icon: ShieldCheck, title: "Auditor ISO 14001", desc: "Sistemas de Gestão Ambiental." },
+              { icon: HardHat, title: "+15 anos em campo", desc: "Mineração e indústria automobilística, do chão de operação à gestão." },
+              { icon: BookOpen, title: "Formação continuada", desc: "Pós em Segurança do Trabalho; especialização em Higiene Ocupacional em curso." },
+            ].map(({ icon: Icon, title, desc }) => (
+              <div key={title} className="bg-card border border-border rounded-xl p-6 hover:border-[color:var(--brand)] hover:shadow-lg transition-all">
+                <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-brand-gradient text-white mb-4 shadow-md">
+                  <Icon className="h-6 w-6" strokeWidth={2.2} />
+                </div>
+                <h3 className="font-bold text-base leading-tight">{title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* PILARES / SOLUÇÕES */}
       <section id="pilares" className="py-20 lg:py-24 bg-secondary/50 border-y border-border">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
@@ -277,7 +312,7 @@ function Index() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <CTA><MessageCircle className="h-4 w-4" /> Chamar no WhatsApp</CTA>
-              <CTA variant="outline">Ver soluções <ArrowRight className="h-4 w-4" /></CTA>
+              <CTA variant="outline" href="#pilares">Ver soluções <ArrowRight className="h-4 w-4" /></CTA>
             </div>
             <div className="mt-8 flex flex-wrap gap-6 text-sm text-white/70">
               <div className="flex items-center gap-2"><ShieldCheck className="h-4 w-4 text-brand" /> Responsabilidade técnica</div>
@@ -309,20 +344,47 @@ function Index() {
             <p className="mt-4 text-sm leading-relaxed max-w-xs">
               Consultoria ambiental e de segurança do trabalho. Transformando conformidade em valor sustentável.
             </p>
+            <div className="mt-5 space-y-1.5 text-sm">
+              <div className="font-semibold text-white">A&amp;M Consultoria Ambiental e SST</div>
+              <div className="flex items-center gap-2"><MapPin className="h-4 w-4 text-brand shrink-0" /> Barão de Cocais · Minas Gerais</div>
+              <div>CNPJ: <span className="text-white/60">[a definir]</span></div>
+              <div>E-mail: <span className="text-white/60">[a definir]</span></div>
+            </div>
           </div>
           <div className="text-sm">
             <div className="font-bold text-white mb-3">Navegação</div>
             <ul className="space-y-2">
               <li><a href="#sobre" className="hover:text-brand transition">Sobre</a></li>
+              <li><a href="#credenciais" className="hover:text-brand transition">Credenciais</a></li>
               <li><a href="#pilares" className="hover:text-brand transition">Soluções</a></li>
               <li><a href="#valores" className="hover:text-brand transition">Valores</a></li>
             </ul>
           </div>
           <div className="text-sm">
             <div className="font-bold text-white mb-3">Contato</div>
+            <ul className="space-y-2.5">
+              <li>
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-brand transition">
+                  <MessageCircle className="h-4 w-4 text-brand" /> WhatsApp: (31) 99229-3261
+                </a>
+              </li>
+              <li className="inline-flex items-center gap-2">
+                <Mail className="h-4 w-4 text-brand" /> E-mail: <span className="text-white/60">[a definir]</span>
+              </li>
+              <li>
+                <a href="https://instagram.com/aem.consultoria_ambiental_sst" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-brand transition">
+                  <Instagram className="h-4 w-4 text-brand" /> @aem.consultoria_ambiental_sst
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-brand transition">
+                  <Linkedin className="h-4 w-4 text-brand" /> LinkedIn
+                </a>
+              </li>
+            </ul>
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
-               className="inline-flex items-center gap-2 rounded-md bg-brand-gradient px-4 py-2 text-white font-semibold hover:shadow-lg transition">
-              <MessageCircle className="h-4 w-4" /> WhatsApp
+               className="mt-5 inline-flex items-center gap-2 rounded-md bg-brand-gradient px-4 py-2 text-white font-semibold hover:shadow-lg transition">
+              <MessageCircle className="h-4 w-4" /> Falar no WhatsApp
             </a>
           </div>
         </div>
