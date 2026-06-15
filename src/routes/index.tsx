@@ -125,7 +125,6 @@ function Index() {
               Protegemos pessoas, garantimos conformidade legal e entregamos resultados mensuráveis para o seu negócio.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <CTA><MessageCircle className="h-4 w-4" /> Falar com especialista</CTA>
               <CTA variant="outline" href="#pilares">Conhecer soluções <ArrowRight className="h-4 w-4" /></CTA>
             </div>
           </div>
@@ -312,10 +311,6 @@ function Index() {
               Fale com nossa equipe e receba um diagnóstico estratégico para sua operação.
               Direção clara, execução prática, segurança em primeiro lugar.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <CTA><MessageCircle className="h-4 w-4" /> Chamar no WhatsApp</CTA>
-              <CTA variant="outline" href="#pilares">Ver soluções <ArrowRight className="h-4 w-4" /></CTA>
-            </div>
             <div className="mt-8 flex flex-wrap gap-6 text-sm text-white/70">
               <div className="flex items-center gap-2"><ShieldCheck className="h-4 w-4 text-brand" /> Responsabilidade técnica</div>
               <div className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-brand" /> Atendimento próximo</div>
