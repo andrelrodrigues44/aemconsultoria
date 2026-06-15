@@ -377,7 +377,7 @@ function Index() {
                 </a>
               </li>
               <li>
-                <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-brand transition">
+                <a href="https://www.linkedin.com/company/a-m-consultoria-e-capacita/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-brand transition">
                   <Linkedin className="h-4 w-4 text-brand" /> LinkedIn
                 </a>
               </li>
