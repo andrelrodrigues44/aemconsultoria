@@ -223,6 +223,209 @@ function TrainingQuoteDialog({ children }: { children: React.ReactNode }) {
   );
 }
 
+const COMPANY_SIZES = ["Até 10 colaboradores", "11 a 50 colaboradores", "51 a 200 colaboradores", "Acima de 200 colaboradores"];
+const SECTORS = ["Indústria", "Construção Civil", "Comércio / Varejo", "Serviços", "Logística / Transporte", "Agro / Alimentos", "Saúde", "Outro"];
+const SERVICE_DEADLINES = ["O quanto antes", "Em até 30 dias", "Em até 90 dias", "Apenas pesquisando opções"];
+
+function ServiceQuoteDialog({ children, service, scopeOptions }: { children: React.ReactNode; service: string; scopeOptions: string[] }) {
+  const [open, setOpen] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [form, setForm] = useState({
+    nome: "", empresa: "", cargo: "", email: "", telefone: "", cidade: "",
+    porte: "", setor: "", escopo: [] as string[], prazo: "", desafio: "", descricao: "",
+  });
+
+  const toggleScope = (s: string) => {
+    setForm((f) => ({ ...f, escopo: f.escopo.includes(s) ? f.escopo.filter((x) => x !== s) : [...f.escopo, s] }));
+  };
+
+  const reset = () => {
+    setSubmitted(false);
+    setForm({ nome: "", empresa: "", cargo: "", email: "", telefone: "", cidade: "", porte: "", setor: "", escopo: [], prazo: "", desafio: "", descricao: "" });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!form.nome || !form.email || !form.telefone || !form.cidade || !form.porte || !form.setor) return;
+    const lines = [
+      `*Solicitação de Proposta — ${service}*`,
+      "",
+      "*Contato*",
+      `Nome: ${form.nome}`,
+      form.empresa && `Empresa: ${form.empresa}`,
+      form.cargo && `Cargo: ${form.cargo}`,
+      `E-mail: ${form.email}`,
+      `Telefone: ${form.telefone}`,
+      `Cidade/Estado: ${form.cidade}`,
+      "",
+      "*Sobre a Empresa*",
+      `Porte: ${form.porte}`,
+      `Setor: ${form.setor}`,
+      "",
+      "*Necessidade*",
+      form.escopo.length > 0 && `Escopo de interesse: ${form.escopo.join(", ")}`,
+      form.prazo && `Prazo desejado: ${form.prazo}`,
+      form.desafio && `Principal desafio: ${form.desafio}`,
+      form.descricao && `Detalhes: ${form.descricao}`,
+    ].filter(Boolean).join("\n");
+    const url = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(lines)}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+    setSubmitted(true);
+  };
+
+  return (
+    <Dialog open={open} onOpenChange={(v) => { setOpen(v); if (!v) reset(); }}>
+      <DialogTrigger asChild>{children}</DialogTrigger>
+      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+        {submitted ? (
+          <div className="py-6 text-center">
+            <div className="mx-auto h-14 w-14 rounded-full bg-brand-gradient text-white inline-flex items-center justify-center mb-4">
+              <CheckCircle2 className="h-7 w-7" />
+            </div>
+            <DialogTitle className="text-2xl">Solicitação Enviada com Sucesso!</DialogTitle>
+            <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+              Obrigado pelo seu interesse em <strong>{service}</strong>. Nossa equipe analisará as informações
+              enviadas e retornará em até <strong>24 horas úteis</strong> para entender melhor sua necessidade
+              e elaborar uma proposta personalizada.
+            </p>
+            <div className="mt-6 border-t border-border pt-5">
+              <div className="text-sm font-semibold">Precisa de atendimento mais rápido?</div>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex items-center justify-center gap-2 rounded-md px-5 py-2.5 text-sm font-semibold bg-brand-gradient text-white shadow-md hover:shadow-lg transition"
+              >
+                <MessageCircle className="h-4 w-4" /> Falar com um Especialista
+              </a>
+            </div>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="space-y-5">
+            <DialogHeader>
+              <div className="text-[10px] font-bold tracking-[0.2em] text-[color:var(--brand)]">PROPOSTA PERSONALIZADA</div>
+              <DialogTitle className="text-2xl">{service}</DialogTitle>
+              <DialogDescription>
+                Conte um pouco sobre sua empresa e seu desafio. Em até 24 horas úteis enviamos uma proposta sob medida.
+              </DialogDescription>
+            </DialogHeader>
+
+            <div>
+              <div className="text-xs font-bold tracking-[0.18em] text-[color:var(--brand)] mb-3">INFORMAÇÕES PARA CONTATO</div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="sm:col-span-2">
+                  <Label htmlFor="s-nome">Nome Completo *</Label>
+                  <Input id="s-nome" required value={form.nome} onChange={(e) => setForm({ ...form, nome: e.target.value })} />
+                </div>
+                <div>
+                  <Label htmlFor="s-empresa">Empresa</Label>
+                  <Input id="s-empresa" value={form.empresa} onChange={(e) => setForm({ ...form, empresa: e.target.value })} />
+                </div>
+                <div>
+                  <Label htmlFor="s-cargo">Cargo/Função</Label>
+                  <Input id="s-cargo" value={form.cargo} onChange={(e) => setForm({ ...form, cargo: e.target.value })} />
+                </div>
+                <div>
+                  <Label htmlFor="s-email">E-mail *</Label>
+                  <Input id="s-email" type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
+                </div>
+                <div>
+                  <Label htmlFor="s-telefone">Telefone/WhatsApp *</Label>
+                  <Input id="s-telefone" required value={form.telefone} onChange={(e) => setForm({ ...form, telefone: e.target.value })} />
+                </div>
+                <div className="sm:col-span-2">
+                  <Label htmlFor="s-cidade">Cidade/Estado *</Label>
+                  <Input id="s-cidade" required value={form.cidade} onChange={(e) => setForm({ ...form, cidade: e.target.value })} />
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div className="text-xs font-bold tracking-[0.18em] text-[color:var(--brand)] mb-3">SOBRE A EMPRESA</div>
+              <div className="space-y-4">
+                <div>
+                  <Label>Porte da empresa *</Label>
+                  <RadioGroup className="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-2" value={form.porte} onValueChange={(v) => setForm({ ...form, porte: v })}>
+                    {COMPANY_SIZES.map((p) => (
+                      <label key={p} className="flex items-center gap-2 text-sm cursor-pointer rounded-md border border-border px-3 py-2">
+                        <RadioGroupItem value={p} /> {p}
+                      </label>
+                    ))}
+                  </RadioGroup>
+                </div>
+                <div>
+                  <Label>Setor de atuação *</Label>
+                  <RadioGroup className="mt-2 grid grid-cols-2 sm:grid-cols-4 gap-2" value={form.setor} onValueChange={(v) => setForm({ ...form, setor: v })}>
+                    {SECTORS.map((s) => (
+                      <label key={s} className="flex items-center gap-2 text-sm cursor-pointer rounded-md border border-border px-3 py-2">
+                        <RadioGroupItem value={s} /> {s}
+                      </label>
+                    ))}
+                  </RadioGroup>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div className="text-xs font-bold tracking-[0.18em] text-[color:var(--brand)] mb-3">SUA NECESSIDADE</div>
+              <Label>Escopo de interesse (selecione um ou mais)</Label>
+              <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-2 rounded-md border border-border p-3">
+                {scopeOptions.map((s) => (
+                  <label key={s} className="flex items-start gap-2 text-sm cursor-pointer">
+                    <Checkbox checked={form.escopo.includes(s)} onCheckedChange={() => toggleScope(s)} />
+                    <span className="leading-tight">{s}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <Label>Prazo desejado para início</Label>
+              <RadioGroup className="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-2" value={form.prazo} onValueChange={(v) => setForm({ ...form, prazo: v })}>
+                {SERVICE_DEADLINES.map((s) => (
+                  <label key={s} className="flex items-center gap-2 text-sm cursor-pointer rounded-md border border-border px-3 py-2">
+                    <RadioGroupItem value={s} /> {s}
+                  </label>
+                ))}
+              </RadioGroup>
+            </div>
+
+            <div>
+              <Label htmlFor="s-desafio">Qual é o principal desafio que você quer resolver?</Label>
+              <Input
+                id="s-desafio"
+                placeholder="Ex.: Preparar a empresa para uma auditoria ISO 14001"
+                value={form.desafio}
+                onChange={(e) => setForm({ ...form, desafio: e.target.value })}
+              />
+            </div>
+
+            <div>
+              <Label htmlFor="s-descricao">Detalhes adicionais (opcional)</Label>
+              <Textarea
+                id="s-descricao"
+                rows={3}
+                placeholder="Conte sobre processos críticos, fiscalizações recentes, equipe responsável, prazos legais, etc."
+                value={form.descricao}
+                onChange={(e) => setForm({ ...form, descricao: e.target.value })}
+              />
+            </div>
+
+            <DialogFooter>
+              <button
+                type="submit"
+                className="inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 text-sm font-semibold bg-brand-gradient text-white shadow-md hover:shadow-lg transition w-full sm:w-auto"
+              >
+                <MessageCircle className="h-4 w-4" /> Enviar Solicitação
+              </button>
+            </DialogFooter>
+          </form>
+        )}
+      </DialogContent>
+    </Dialog>
+  );
+}
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -595,14 +798,24 @@ function Index() {
                   ))}
                 </ul>
               </div>
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-6 inline-flex items-center justify-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold bg-brand-gradient text-white shadow-md hover:shadow-lg transition"
+              <ServiceQuoteDialog
+                service="Diagnóstico Completo + Relatório Técnico"
+                scopeOptions={[
+                  "Diagnóstico de conformidade ambiental",
+                  "Diagnóstico de conformidade SST",
+                  "Levantamento de requisitos legais",
+                  "Avaliação de documentos e controles",
+                  "Plano de ação para adequação",
+                  "Preparação para auditoria",
+                ]}
               >
-                <MessageCircle className="h-4 w-4" /> Solicitar uma proposta
-              </a>
+                <button
+                  type="button"
+                  className="mt-6 inline-flex items-center justify-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold bg-brand-gradient text-white shadow-md hover:shadow-lg transition"
+                >
+                  <MessageCircle className="h-4 w-4" /> Solicitar uma proposta
+                </button>
+              </ServiceQuoteDialog>
             </div>
 
             {/* Card 3 — Auditoria Premium */}
@@ -657,14 +870,25 @@ function Index() {
                   ))}
                 </ul>
               </div>
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-6 inline-flex items-center justify-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold bg-white text-[color:var(--brand-dark)] hover:bg-white/90 transition"
+              <ServiceQuoteDialog
+                service="Auditoria de Conformidade Ambiental e SST"
+                scopeOptions={[
+                  "Auditoria documental",
+                  "Auditoria de campo",
+                  "Avaliação de requisitos ambientais",
+                  "Avaliação de requisitos de SST",
+                  "Preparação para ISO 14001",
+                  "Preparação para ISO 45001",
+                  "Plano de adequação completo",
+                ]}
               >
-                <MessageCircle className="h-4 w-4" /> Solicitar Proposta
-              </a>
+                <button
+                  type="button"
+                  className="mt-6 inline-flex items-center justify-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold bg-white text-[color:var(--brand-dark)] hover:bg-white/90 transition"
+                >
+                  <MessageCircle className="h-4 w-4" /> Solicitar Proposta
+                </button>
+              </ServiceQuoteDialog>
             </div>
 
             {/* Card 4 — Consultoria Mensal */}
@@ -714,14 +938,24 @@ function Index() {
                   ))}
                 </ul>
               </div>
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-6 inline-flex items-center justify-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold bg-brand-gradient text-white shadow-md hover:shadow-lg transition"
+              <ServiceQuoteDialog
+                service="Consultoria Mensal Ambiental e SST"
+                scopeOptions={[
+                  "Suporte técnico mensal",
+                  "Atualização de requisitos legais",
+                  "Acompanhamento de planos de ação",
+                  "Apoio em auditorias e fiscalizações",
+                  "Gestão de licenças ambientais",
+                  "Treinamentos recorrentes da equipe",
+                ]}
               >
-                <MessageCircle className="h-4 w-4" /> Solicitar uma proposta
-              </a>
+                <button
+                  type="button"
+                  className="mt-6 inline-flex items-center justify-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold bg-brand-gradient text-white shadow-md hover:shadow-lg transition"
+                >
+                  <MessageCircle className="h-4 w-4" /> Solicitar uma proposta
+                </button>
+              </ServiceQuoteDialog>
             </div>
           </div>
         </div>
