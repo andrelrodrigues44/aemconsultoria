@@ -674,6 +674,7 @@ function Index() {
               <li><a href="#sobre" className="hover:text-brand transition">Sobre</a></li>
               <li><a href="#credenciais" className="hover:text-brand transition">Credenciais</a></li>
               <li><a href="#pilares" className="hover:text-brand transition">Soluções</a></li>
+              <li><a href="#treinamentos" className="hover:text-brand transition">Treinamentos</a></li>
               <li><a href="#valores" className="hover:text-brand transition">Valores</a></li>
             </ul>
           </div>
