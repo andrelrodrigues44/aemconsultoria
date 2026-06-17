@@ -343,7 +343,7 @@ function Index() {
               </p>
               <div className="mt-4 pt-4 border-t border-border">
                 <div className="text-[10px] font-semibold tracking-wider uppercase text-muted-foreground">Investimento</div>
-                <div className="mt-1 text-2xl font-extrabold text-[color:var(--brand)]">R$ 997</div>
+                <div className="mt-1 text-2xl font-extrabold text-[color:var(--brand)]">a partir de R$ 997</div>
               </div>
               <div className="mt-5">
                 <div className="text-xs font-bold tracking-wider uppercase text-muted-foreground mb-3">O que está incluso</div>
@@ -403,7 +403,7 @@ function Index() {
               </p>
               <div className="mt-4 pt-4 border-t border-white/15">
                 <div className="text-[10px] font-semibold tracking-wider uppercase text-white/60">Investimento</div>
-                <div className="mt-1 text-2xl font-extrabold text-brand">R$ 2.500 a R$ 5.000</div>
+                <div className="mt-1 text-2xl font-extrabold text-brand">a partir de R$ 2.500</div>
               </div>
               <div className="mt-5">
                 <div className="text-xs font-bold tracking-wider uppercase text-white/60 mb-3">O que está incluso</div>
@@ -462,7 +462,7 @@ function Index() {
               </p>
               <div className="mt-4 pt-4 border-t border-border">
                 <div className="text-[10px] font-semibold tracking-wider uppercase text-muted-foreground">Investimento</div>
-                <div className="mt-1 text-2xl font-extrabold text-[color:var(--brand)]">R$ 790 a R$ 1.500/mês</div>
+                <div className="mt-1 text-2xl font-extrabold text-[color:var(--brand)]">a partir de R$ 790/mês</div>
               </div>
               <div className="mt-5">
                 <div className="text-xs font-bold tracking-wider uppercase text-muted-foreground mb-3">O que está incluso</div>
