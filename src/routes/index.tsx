@@ -785,14 +785,14 @@ function Index() {
                   </li>
                 ))}
               </ul>
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-8 inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 text-sm font-semibold bg-white text-[color:var(--brand-dark)] hover:bg-white/90 transition shadow-md"
-              >
-                <MessageCircle className="h-4 w-4" /> Solicitar Orçamento
-              </a>
+              <TrainingQuoteDialog>
+                <button
+                  type="button"
+                  className="mt-8 inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 text-sm font-semibold bg-white text-[color:var(--brand-dark)] hover:bg-white/90 transition shadow-md"
+                >
+                  <MessageCircle className="h-4 w-4" /> Solicitar Orçamento
+                </button>
+              </TrainingQuoteDialog>
             </div>
           </div>
         </div>
