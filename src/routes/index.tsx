@@ -14,18 +14,6 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 const WHATSAPP_PHONE = "5531992293261";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_PHONE}`;
-const WHATSAPP_MESSAGE = encodeURIComponent(
-  "Olá, equipe A&M Consultoria Ambiental e SST! 👋🌱\n\n" +
-  "Vi o site de vocês e gostaria de uma proposta personalizada.\n\n" +
-  "Para agilizar meu atendimento, seguem meus dados:\n\n" +
-  "👤 Nome completo: [digite aqui]\n" +
-  "🏢 Empresa: [nome da empresa, se houver]\n" +
-  "📍 Cidade/Estado: [sua localização]\n" +
-  "📱 WhatsApp: [seu número]\n" +
-  "📋 Descrição do serviço/treinamento desejado: [descreva o que precisa]\n\n" +
-  "Fico no aguardo do retorno de vocês. Desde já, muito obrigado! 😊📋✨"
-);
-const WHATSAPP_URL_WITH_MESSAGE = `https://wa.me/${WHATSAPP_PHONE}?text=${WHATSAPP_MESSAGE}`;
 
 const TRAININGS = [
   "NR-05 – CIPA",
@@ -115,7 +103,7 @@ function TrainingQuoteDialog({ children }: { children: React.ReactNode }) {
             <div className="mt-6 border-t border-border pt-5">
               <div className="text-sm font-semibold">Precisa de atendimento mais rápido?</div>
               <a
-                href={WHATSAPP_URL_WITH_MESSAGE}
+                href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-3 inline-flex items-center justify-center gap-2 rounded-md px-5 py-2.5 text-sm font-semibold bg-brand-gradient text-white shadow-md hover:shadow-lg transition"
@@ -303,7 +291,7 @@ function ServiceQuoteDialog({ children, service, scopeOptions }: { children: Rea
             <div className="mt-6 border-t border-border pt-5">
               <div className="text-sm font-semibold">Precisa de atendimento mais rápido?</div>
               <a
-                href={WHATSAPP_URL_WITH_MESSAGE}
+                href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-3 inline-flex items-center justify-center gap-2 rounded-md px-5 py-2.5 text-sm font-semibold bg-brand-gradient text-white shadow-md hover:shadow-lg transition"
@@ -527,7 +515,7 @@ function Index() {
             <a href="#valores" className="hover:text-foreground transition">Valores</a>
             <a href="#diferenciais" className="hover:text-foreground transition">Diferenciais</a>
           </nav>
-          <a href={WHATSAPP_URL_WITH_MESSAGE} target="_blank" rel="noopener noreferrer"
+          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
              className="inline-flex items-center gap-2 rounded-md bg-brand-gradient text-white px-4 py-2 text-sm font-semibold shadow-md hover:shadow-lg transition">
             <MessageCircle className="h-4 w-4" /> Fale conosco
           </a>
@@ -1162,7 +1150,7 @@ function Index() {
                 </a>
               </li>
             </ul>
-            <a href={WHATSAPP_URL_WITH_MESSAGE} target="_blank" rel="noopener noreferrer"
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
                className="mt-5 inline-flex items-center gap-2 rounded-md bg-brand-gradient px-4 py-2 text-white font-semibold hover:shadow-lg transition">
               <MessageCircle className="h-4 w-4" /> Falar no WhatsApp
             </a>
