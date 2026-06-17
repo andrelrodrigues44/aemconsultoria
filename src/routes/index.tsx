@@ -441,12 +441,12 @@ function Index() {
                 </ul>
               </div>
               <a
-                href="https://mpago.la/2VpPszE"
+                href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-6 inline-flex items-center justify-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold bg-white text-[color:var(--brand-dark)] hover:bg-white/90 transition"
               >
-                Pagar Agora — R$ 2.500 a R$ 5.000
+                <MessageCircle className="h-4 w-4" /> Solicitar Proposta
               </a>
             </div>
 
@@ -498,12 +498,12 @@ function Index() {
                 </ul>
               </div>
               <a
-                href={WHATSAPP_URL}
+                href="https://mpago.la/2VpPszE"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-6 inline-flex items-center justify-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold bg-brand-gradient text-white shadow-md hover:shadow-lg transition"
               >
-                <MessageCircle className="h-4 w-4" /> Contratar Consultoria Mensal
+                Pagar Agora — R$ 790 a R$ 1.500/mês
               </a>
             </div>
           </div>
