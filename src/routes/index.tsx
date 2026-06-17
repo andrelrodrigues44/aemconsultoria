@@ -287,7 +287,7 @@ function Index() {
               </p>
               <div className="mt-4 pt-4 border-t border-border">
                 <div className="text-[10px] font-semibold tracking-wider uppercase text-muted-foreground">Investimento</div>
-                <div className="mt-1 text-2xl font-extrabold text-[color:var(--brand)]">R$ 297</div>
+                <div className="mt-1 text-2xl font-extrabold text-[color:var(--brand)]">R$ 497</div>
               </div>
               <div className="mt-5">
                 <div className="text-xs font-bold tracking-wider uppercase text-muted-foreground mb-3">O que está incluso</div>
@@ -327,7 +327,7 @@ function Index() {
                 rel="noopener noreferrer"
                 className="mt-6 inline-flex items-center justify-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold bg-brand-gradient text-white shadow-md hover:shadow-lg transition"
               >
-                <MessageCircle className="h-4 w-4" /> Pagar Agora — R$ 297
+                <MessageCircle className="h-4 w-4" /> Compre Agora — R$ 497
               </a>
             </div>
 
@@ -379,12 +379,12 @@ function Index() {
                 </ul>
               </div>
               <a
-                href="https://mpago.la/1eKGXtN"
+                href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-6 inline-flex items-center justify-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold bg-brand-gradient text-white shadow-md hover:shadow-lg transition"
               >
-                <MessageCircle className="h-4 w-4" /> Pagar Agora — R$ 997
+                <MessageCircle className="h-4 w-4" /> Solicitar uma proposta
               </a>
             </div>
 
@@ -498,12 +498,12 @@ function Index() {
                 </ul>
               </div>
               <a
-                href="https://mpago.la/2VpPszE"
+                href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-6 inline-flex items-center justify-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold bg-brand-gradient text-white shadow-md hover:shadow-lg transition"
               >
-                Pagar Agora — R$ 790 a R$ 1.500/mês
+                <MessageCircle className="h-4 w-4" /> Solicitar uma proposta
               </a>
             </div>
           </div>
