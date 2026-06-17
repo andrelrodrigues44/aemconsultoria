@@ -510,6 +510,77 @@ function Index() {
         </div>
       </section>
 
+      {/* TREINAMENTOS */}
+      <section id="treinamentos" className="py-20 lg:py-24 bg-secondary/50 border-y border-border">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+          <div className="max-w-2xl">
+            <div className="text-xs font-bold tracking-[0.2em] text-[color:var(--brand)]">TREINAMENTOS</div>
+            <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold">Treinamentos Disponíveis</h2>
+            <p className="mt-3 text-muted-foreground leading-relaxed">
+              Capacitações técnicas em Segurança do Trabalho e Meio Ambiente, alinhadas às normas regulamentadoras e às necessidades da sua operação.
+            </p>
+          </div>
+
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              "NR-05 – Comissão Interna de Prevenção de Acidentes (CIPA)",
+              "NR-06 – Equipamentos de Proteção Individual (EPI)",
+              "NR-10 – Segurança em Instalações e Serviços em Eletricidade",
+              "NR-11 – Movimentação e Transporte de Materiais",
+              "NR-12 – Segurança em Máquinas e Equipamentos",
+              "NR-18 – Condições e Meio Ambiente na Construção Civil",
+              "NR-20 – Segurança com Inflamáveis e Combustíveis",
+              "NR-23 – Proteção e Combate a Incêndio",
+              "NR-26 – Sinalização de Segurança e Produtos Químicos",
+              "NR-33 – Espaço Confinado",
+              "NR-35 – Trabalho em Altura",
+              "Integração de Segurança para Colaboradores e Terceiros",
+              "Gestão de Resíduos e Meio Ambiente",
+              "Atendimento a Emergências",
+              "Percepção de Riscos e Comportamento Seguro",
+              "Treinamentos personalizados conforme necessidade da empresa",
+            ].map((item) => (
+              <div key={item} className="flex items-start gap-3 bg-card border border-border rounded-xl p-5 hover:border-[color:var(--brand)] hover:shadow-md transition-all">
+                <GraduationCap className="h-5 w-5 text-[color:var(--brand)] shrink-0 mt-0.5" strokeWidth={2.2} />
+                <span className="text-sm font-medium leading-snug">{item}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-16 bg-brand-gradient rounded-2xl p-8 lg:p-10 text-white relative overflow-hidden">
+            <GraduationCap className="absolute -right-6 -bottom-6 h-40 w-40 text-white/5" />
+            <div className="relative">
+              <h3 className="text-2xl lg:text-3xl font-extrabold">Solicite seu Orçamento</h3>
+              <p className="mt-3 text-white/80 max-w-2xl leading-relaxed">
+                Cada empresa possui necessidades específicas de treinamento. Por isso, elaboramos propostas personalizadas considerando:
+              </p>
+              <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                {[
+                  "Quantidade de participantes",
+                  "Modalidade (presencial ou online)",
+                  "Carga horária necessária",
+                  "Local de realização",
+                  "Conteúdo específico da atividade",
+                ].map((item) => (
+                  <li key={item} className="flex items-center gap-2 text-sm text-white/90">
+                    <CheckCircle2 className="h-4 w-4 text-brand shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 text-sm font-semibold bg-white text-[color:var(--brand-dark)] hover:bg-white/90 transition shadow-md"
+              >
+                <MessageCircle className="h-4 w-4" /> Solicitar Orçamento
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* VALORES & DIFERENCIAIS */}
       <section id="valores" className="py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-5 lg:px-8 grid lg:grid-cols-2 gap-10">
