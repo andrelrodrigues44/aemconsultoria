@@ -343,7 +343,7 @@ function Index() {
               </p>
               <div className="mt-4 pt-4 border-t border-border">
                 <div className="text-[10px] font-semibold tracking-wider uppercase text-muted-foreground">Investimento</div>
-                <div className="mt-1 text-2xl font-extrabold text-[color:var(--brand)]">R$ 997</div>
+                <div className="mt-1 text-2xl font-extrabold text-[color:var(--brand)]">a partir de R$ 997</div>
               </div>
               <div className="mt-5">
                 <div className="text-xs font-bold tracking-wider uppercase text-muted-foreground mb-3">O que está incluso</div>
