@@ -379,12 +379,12 @@ function Index() {
                 </ul>
               </div>
               <a
-                href={WHATSAPP_URL}
+                href="https://mpago.la/1eKGXtN"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-6 inline-flex items-center justify-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold bg-brand-gradient text-white shadow-md hover:shadow-lg transition"
               >
-                <MessageCircle className="h-4 w-4" /> Quero Meu Diagnóstico Completo
+                <MessageCircle className="h-4 w-4" /> Pagar Agora — R$ 997
               </a>
             </div>
 
