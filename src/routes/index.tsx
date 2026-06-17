@@ -303,7 +303,7 @@ function ServiceQuoteDialog({ children, service, scopeOptions }: { children: Rea
             <div className="mt-6 border-t border-border pt-5">
               <div className="text-sm font-semibold">Precisa de atendimento mais rápido?</div>
               <a
-                href={WHATSAPP_URL}
+                href={WHATSAPP_URL_WITH_MESSAGE}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-3 inline-flex items-center justify-center gap-2 rounded-md px-5 py-2.5 text-sm font-semibold bg-brand-gradient text-white shadow-md hover:shadow-lg transition"
