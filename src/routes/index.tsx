@@ -1,11 +1,227 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 import { Leaf, HardHat, ClipboardCheck, TrendingUp, ShieldCheck, Users, Scale, Target, CheckCircle2, ArrowRight, MessageCircle, Quote, Award, BookOpen, GraduationCap, Mail, Instagram, Linkedin, MapPin, FileSearch, FileText, ShieldAlert, Repeat } from "lucide-react";
 import professionalAsset from "@/assets/am-professional.png.asset.json";
 import heroAsset from "@/assets/am-hero.png.asset.json";
 import handshakeAsset from "@/assets/handshake.jpg.asset.json";
 import logoAsset from "@/assets/logo.png.asset.json";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogTrigger } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
-const WHATSAPP_URL = "https://wa.me/5531992293261";
+const WHATSAPP_PHONE = "5531992293261";
+const WHATSAPP_URL = `https://wa.me/${WHATSAPP_PHONE}`;
+
+const TRAININGS = [
+  "NR-05 – CIPA",
+  "NR-06 – EPI",
+  "NR-10 – Eletricidade",
+  "NR-11 – Movimentação e Transporte de Materiais",
+  "NR-12 – Máquinas e Equipamentos",
+  "NR-18 – Construção Civil",
+  "NR-20 – Inflamáveis e Combustíveis",
+  "NR-23 – Proteção e Combate a Incêndios",
+  "NR-26 – Sinalização de Segurança e Produtos Químicos",
+  "NR-33 – Espaço Confinado",
+  "NR-35 – Trabalho em Altura",
+  "Integração de Segurança",
+  "Percepção de Riscos",
+  "Gestão Ambiental",
+  "Atendimento a Emergências",
+  "Outro",
+];
+
+const PARTICIPANTS = ["Até 10 participantes", "De 11 a 20 participantes", "De 21 a 50 participantes", "Acima de 50 participantes"];
+const MODALITIES = ["Presencial", "Online", "Híbrido"];
+const SCHEDULES = ["Imediatamente", "Em até 30 dias", "Em até 60 dias", "Ainda sem definição"];
+
+function TrainingQuoteDialog({ children }: { children: React.ReactNode }) {
+  const [open, setOpen] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [form, setForm] = useState({
+    nome: "", empresa: "", cargo: "", email: "", telefone: "", cidade: "",
+    treinamentos: [] as string[], participantes: "", modalidade: "", prazo: "", descricao: "",
+  });
+
+  const toggleTraining = (t: string) => {
+    setForm((f) => ({
+      ...f,
+      treinamentos: f.treinamentos.includes(t) ? f.treinamentos.filter((x) => x !== t) : [...f.treinamentos, t],
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!form.nome || !form.email || !form.telefone || !form.cidade || form.treinamentos.length === 0 || !form.participantes || !form.modalidade) {
+      return;
+    }
+    const lines = [
+      "*Solicitação de Orçamento — Treinamento Corporativo*",
+      "",
+      "*Contato*",
+      `Nome: ${form.nome}`,
+      form.empresa && `Empresa: ${form.empresa}`,
+      form.cargo && `Cargo: ${form.cargo}`,
+      `E-mail: ${form.email}`,
+      `Telefone: ${form.telefone}`,
+      `Cidade/Estado: ${form.cidade}`,
+      "",
+      "*Treinamento*",
+      `Interesse: ${form.treinamentos.join(", ")}`,
+      `Participantes: ${form.participantes}`,
+      `Modalidade: ${form.modalidade}`,
+      form.prazo && `Prazo: ${form.prazo}`,
+      form.descricao && `Necessidade: ${form.descricao}`,
+    ].filter(Boolean).join("\n");
+    const url = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(lines)}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+    setSubmitted(true);
+  };
+
+  const reset = () => {
+    setSubmitted(false);
+    setForm({ nome: "", empresa: "", cargo: "", email: "", telefone: "", cidade: "", treinamentos: [], participantes: "", modalidade: "", prazo: "", descricao: "" });
+  };
+
+  return (
+    <Dialog open={open} onOpenChange={(v) => { setOpen(v); if (!v) reset(); }}>
+      <DialogTrigger asChild>{children}</DialogTrigger>
+      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+        {submitted ? (
+          <div className="py-6 text-center">
+            <div className="mx-auto h-14 w-14 rounded-full bg-brand-gradient text-white inline-flex items-center justify-center mb-4">
+              <CheckCircle2 className="h-7 w-7" />
+            </div>
+            <DialogTitle className="text-2xl">Solicitação Enviada com Sucesso!</DialogTitle>
+            <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+              Obrigado pelo seu interesse nos treinamentos da A&amp;M Consultoria Ambiental e SST.
+              Nossa equipe analisará as informações e retornará em até 24 horas úteis com uma proposta personalizada.
+            </p>
+            <div className="mt-6 border-t border-border pt-5">
+              <div className="text-sm font-semibold">Precisa de atendimento mais rápido?</div>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex items-center justify-center gap-2 rounded-md px-5 py-2.5 text-sm font-semibold bg-brand-gradient text-white shadow-md hover:shadow-lg transition"
+              >
+                <MessageCircle className="h-4 w-4" /> Falar com um Especialista
+              </a>
+            </div>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="space-y-5">
+            <DialogHeader>
+              <DialogTitle className="text-2xl">Solicite seu Orçamento Personalizado</DialogTitle>
+              <DialogDescription>
+                Preencha o formulário e receba uma proposta personalizada para os treinamentos corporativos da A&amp;M.
+              </DialogDescription>
+            </DialogHeader>
+
+            <div>
+              <div className="text-xs font-bold tracking-[0.18em] text-[color:var(--brand)] mb-3">INFORMAÇÕES PARA CONTATO</div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="sm:col-span-2">
+                  <Label htmlFor="nome">Nome Completo *</Label>
+                  <Input id="nome" required value={form.nome} onChange={(e) => setForm({ ...form, nome: e.target.value })} />
+                </div>
+                <div>
+                  <Label htmlFor="empresa">Empresa</Label>
+                  <Input id="empresa" value={form.empresa} onChange={(e) => setForm({ ...form, empresa: e.target.value })} />
+                </div>
+                <div>
+                  <Label htmlFor="cargo">Cargo/Função</Label>
+                  <Input id="cargo" value={form.cargo} onChange={(e) => setForm({ ...form, cargo: e.target.value })} />
+                </div>
+                <div>
+                  <Label htmlFor="email">E-mail *</Label>
+                  <Input id="email" type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
+                </div>
+                <div>
+                  <Label htmlFor="telefone">Telefone/WhatsApp *</Label>
+                  <Input id="telefone" required value={form.telefone} onChange={(e) => setForm({ ...form, telefone: e.target.value })} />
+                </div>
+                <div className="sm:col-span-2">
+                  <Label htmlFor="cidade">Cidade/Estado *</Label>
+                  <Input id="cidade" required value={form.cidade} onChange={(e) => setForm({ ...form, cidade: e.target.value })} />
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div className="text-xs font-bold tracking-[0.18em] text-[color:var(--brand)] mb-3">INFORMAÇÕES DO TREINAMENTO</div>
+              <Label>Treinamento de Interesse *</Label>
+              <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-2 rounded-md border border-border p-3 max-h-56 overflow-y-auto">
+                {TRAININGS.map((t) => (
+                  <label key={t} className="flex items-start gap-2 text-sm cursor-pointer">
+                    <Checkbox checked={form.treinamentos.includes(t)} onCheckedChange={() => toggleTraining(t)} />
+                    <span className="leading-tight">{t}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <Label>Quantidade estimada de participantes *</Label>
+              <RadioGroup className="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-2" value={form.participantes} onValueChange={(v) => setForm({ ...form, participantes: v })}>
+                {PARTICIPANTS.map((p) => (
+                  <label key={p} className="flex items-center gap-2 text-sm cursor-pointer rounded-md border border-border px-3 py-2">
+                    <RadioGroupItem value={p} /> {p}
+                  </label>
+                ))}
+              </RadioGroup>
+            </div>
+
+            <div>
+              <Label>Modalidade desejada *</Label>
+              <RadioGroup className="mt-2 grid grid-cols-3 gap-2" value={form.modalidade} onValueChange={(v) => setForm({ ...form, modalidade: v })}>
+                {MODALITIES.map((m) => (
+                  <label key={m} className="flex items-center gap-2 text-sm cursor-pointer rounded-md border border-border px-3 py-2">
+                    <RadioGroupItem value={m} /> {m}
+                  </label>
+                ))}
+              </RadioGroup>
+            </div>
+
+            <div>
+              <Label>Possui data prevista para realização?</Label>
+              <RadioGroup className="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-2" value={form.prazo} onValueChange={(v) => setForm({ ...form, prazo: v })}>
+                {SCHEDULES.map((s) => (
+                  <label key={s} className="flex items-center gap-2 text-sm cursor-pointer rounded-md border border-border px-3 py-2">
+                    <RadioGroupItem value={s} /> {s}
+                  </label>
+                ))}
+              </RadioGroup>
+            </div>
+
+            <div>
+              <Label htmlFor="descricao">Descreva brevemente sua necessidade</Label>
+              <Textarea
+                id="descricao"
+                rows={3}
+                placeholder="Ex.: Necessitamos capacitar operadores de máquinas conforme NR-12 para atendimento de auditoria interna."
+                value={form.descricao}
+                onChange={(e) => setForm({ ...form, descricao: e.target.value })}
+              />
+            </div>
+
+            <DialogFooter>
+              <button
+                type="submit"
+                className="inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 text-sm font-semibold bg-brand-gradient text-white shadow-md hover:shadow-lg transition w-full sm:w-auto"
+              >
+                <MessageCircle className="h-4 w-4" /> Solicitar Orçamento
+              </button>
+            </DialogFooter>
+          </form>
+        )}
+      </DialogContent>
+    </Dialog>
+  );
+}
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -569,14 +785,14 @@ function Index() {
                   </li>
                 ))}
               </ul>
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-8 inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 text-sm font-semibold bg-white text-[color:var(--brand-dark)] hover:bg-white/90 transition shadow-md"
-              >
-                <MessageCircle className="h-4 w-4" /> Solicitar Orçamento
-              </a>
+              <TrainingQuoteDialog>
+                <button
+                  type="button"
+                  className="mt-8 inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 text-sm font-semibold bg-white text-[color:var(--brand-dark)] hover:bg-white/90 transition shadow-md"
+                >
+                  <MessageCircle className="h-4 w-4" /> Solicitar Orçamento
+                </button>
+              </TrainingQuoteDialog>
             </div>
           </div>
         </div>
