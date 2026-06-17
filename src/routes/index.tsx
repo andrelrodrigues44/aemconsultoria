@@ -15,13 +15,15 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 const WHATSAPP_PHONE = "5531992293261";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_PHONE}`;
 const WHATSAPP_MESSAGE = encodeURIComponent(
-  "Olá! Obrigado por entrar em contato com a A&M Consultoria Ambiental e SST.\n\n" +
-  "Para agilizar seu atendimento, envie:\n\n" +
-  "• Nome\n" +
-  "• Telefone\n" +
-  "• Empresa (opcional)\n" +
-  "• Descrição do serviço desejado\n\n" +
-  "Retornaremos o mais breve possível. Será um prazer atendê-lo! 🌱📋"
+  "Olá, equipe A&M Consultoria Ambiental e SST! 👋🌱\n\n" +
+  "Vi o site de vocês e gostaria de uma proposta personalizada.\n\n" +
+  "Para agilizar meu atendimento, seguem meus dados:\n\n" +
+  "👤 Nome completo: [digite aqui]\n" +
+  "🏢 Empresa: [nome da empresa, se houver]\n" +
+  "📍 Cidade/Estado: [sua localização]\n" +
+  "📱 WhatsApp: [seu número]\n" +
+  "📋 Descrição do serviço/treinamento desejado: [descreva o que precisa]\n\n" +
+  "Fico no aguardo do retorno de vocês. Desde já, muito obrigado! 😊📋✨"
 );
 const WHATSAPP_URL_WITH_MESSAGE = `https://wa.me/${WHATSAPP_PHONE}?text=${WHATSAPP_MESSAGE}`;
 
