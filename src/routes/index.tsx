@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Leaf, HardHat, ClipboardCheck, TrendingUp, ShieldCheck, Users, Scale, Target, CheckCircle2, ArrowRight, MessageCircle, Quote, Award, BookOpen, GraduationCap, Mail, Instagram, Linkedin, MapPin } from "lucide-react";
+import { Leaf, HardHat, ClipboardCheck, TrendingUp, ShieldCheck, Users, Scale, Target, CheckCircle2, ArrowRight, MessageCircle, Quote, Award, BookOpen, GraduationCap, Mail, Instagram, Linkedin, MapPin, FileSearch, FileText, ShieldAlert, Repeat } from "lucide-react";
 import professionalAsset from "@/assets/am-professional.png.asset.json";
 import heroAsset from "@/assets/am-hero.png.asset.json";
 import handshakeAsset from "@/assets/handshake.jpg.asset.json";
@@ -91,6 +91,7 @@ function Index() {
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
             <a href="#sobre" className="hover:text-foreground transition">Sobre</a>
             <a href="#pilares" className="hover:text-foreground transition">Soluções</a>
+            <a href="#produtos" className="hover:text-foreground transition">Produtos</a>
             <a href="#valores" className="hover:text-foreground transition">Valores</a>
             <a href="#diferenciais" className="hover:text-foreground transition">Diferenciais</a>
           </nav>
@@ -256,6 +257,98 @@ function Index() {
                 </div>
                 <div className="text-xs font-bold tracking-[0.15em] text-muted-foreground group-hover:text-foreground transition">{label.toUpperCase()}</div>
                 <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PRODUTOS / SERVIÇOS COMERCIAIS */}
+      <section id="produtos" className="py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+          <div className="max-w-2xl">
+            <div className="text-xs font-bold tracking-[0.2em] text-[color:var(--brand)]">PRODUTOS & SERVIÇOS</div>
+            <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold">Soluções para cada momento da sua operação</h2>
+            <p className="mt-3 text-muted-foreground leading-relaxed">
+              Do diagnóstico inicial à consultoria recorrente — escolha o nível de profundidade ideal para o seu negócio.
+            </p>
+          </div>
+
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                icon: FileSearch,
+                tag: "Entrada",
+                title: "Diagnóstico de Conformidade Ambiental e SST",
+                price: "R$ 297",
+                desc: "Avaliação inicial para identificar pontos críticos de conformidade na sua operação.",
+              },
+              {
+                icon: FileText,
+                tag: "Intermediário",
+                title: "Diagnóstico Completo + Relatório Técnico",
+                price: "R$ 997",
+                desc: "Análise aprofundada com relatório técnico detalhado e plano de ação prático.",
+              },
+              {
+                icon: ShieldAlert,
+                tag: "Premium",
+                title: "Auditoria de Conformidade Ambiental e SST",
+                price: "R$ 2.500 a R$ 5.000",
+                desc: "Auditoria completa nos padrões ISO 14001 e 45001 com laudo executivo.",
+                highlight: true,
+              },
+              {
+                icon: Repeat,
+                tag: "Recorrência",
+                title: "Consultoria Ambiental e SST Mensal",
+                price: "R$ 790 a R$ 1.500/mês",
+                desc: "Acompanhamento contínuo, suporte técnico e gestão da conformidade mês a mês.",
+              },
+            ].map(({ icon: Icon, tag, title, price, desc, highlight }) => (
+              <div
+                key={title}
+                className={`relative flex flex-col rounded-2xl p-6 lg:p-7 transition-all hover:-translate-y-1 ${
+                  highlight
+                    ? "bg-hero-gradient text-white border border-[color:var(--brand-light)]/30 shadow-2xl"
+                    : "bg-card border border-border hover:border-[color:var(--brand)] hover:shadow-lg"
+                }`}
+              >
+                {highlight && (
+                  <div className="absolute -top-3 right-5 rounded-full bg-brand-gradient text-white text-[10px] font-bold tracking-[0.15em] px-3 py-1 shadow-md">
+                    MAIS COMPLETO
+                  </div>
+                )}
+                <div className={`inline-flex h-12 w-12 items-center justify-center rounded-xl mb-4 shadow-md ${highlight ? "bg-white/15 text-brand" : "bg-brand-gradient text-white"}`}>
+                  <Icon className="h-6 w-6" strokeWidth={2.2} />
+                </div>
+                <div className={`text-[10px] font-bold tracking-[0.2em] ${highlight ? "text-brand" : "text-[color:var(--brand)]"}`}>
+                  {tag.toUpperCase()}
+                </div>
+                <h3 className={`mt-2 font-extrabold text-lg leading-tight ${highlight ? "text-white" : ""}`}>{title}</h3>
+                <p className={`mt-3 text-sm leading-relaxed flex-1 ${highlight ? "text-white/80" : "text-muted-foreground"}`}>
+                  {desc}
+                </p>
+                <div className={`mt-5 pt-5 border-t ${highlight ? "border-white/15" : "border-border"}`}>
+                  <div className={`text-[10px] font-semibold tracking-wider uppercase ${highlight ? "text-white/60" : "text-muted-foreground"}`}>
+                    Investimento
+                  </div>
+                  <div className={`mt-1 text-2xl font-extrabold ${highlight ? "text-brand" : "text-[color:var(--brand)]"}`}>
+                    {price}
+                  </div>
+                </div>
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`mt-5 inline-flex items-center justify-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold transition ${
+                    highlight
+                      ? "bg-white text-[color:var(--brand-dark)] hover:bg-white/90"
+                      : "bg-brand-gradient text-white shadow-md hover:shadow-lg"
+                  }`}
+                >
+                  <MessageCircle className="h-4 w-4" /> Contratar
+                </a>
               </div>
             ))}
           </div>
