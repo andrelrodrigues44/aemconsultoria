@@ -14,6 +14,16 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 const WHATSAPP_PHONE = "5531992293261";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_PHONE}`;
+const WHATSAPP_MESSAGE = encodeURIComponent(
+  "Olá! Obrigado por entrar em contato com a A&M Consultoria Ambiental e SST.\n\n" +
+  "Para agilizar seu atendimento, envie:\n\n" +
+  "• Nome\n" +
+  "• Telefone\n" +
+  "• Empresa (opcional)\n" +
+  "• Descrição do serviço desejado\n\n" +
+  "Retornaremos o mais breve possível. Será um prazer atendê-lo! 🌱📋"
+);
+const WHATSAPP_URL_WITH_MESSAGE = `https://wa.me/${WHATSAPP_PHONE}?text=${WHATSAPP_MESSAGE}`;
 
 const TRAININGS = [
   "NR-05 – CIPA",
