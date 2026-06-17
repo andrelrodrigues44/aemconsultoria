@@ -870,14 +870,25 @@ function Index() {
                   ))}
                 </ul>
               </div>
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-6 inline-flex items-center justify-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold bg-white text-[color:var(--brand-dark)] hover:bg-white/90 transition"
+              <ServiceQuoteDialog
+                service="Auditoria de Conformidade Ambiental e SST"
+                scopeOptions={[
+                  "Auditoria documental",
+                  "Auditoria de campo",
+                  "Avaliação de requisitos ambientais",
+                  "Avaliação de requisitos de SST",
+                  "Preparação para ISO 14001",
+                  "Preparação para ISO 45001",
+                  "Plano de adequação completo",
+                ]}
               >
-                <MessageCircle className="h-4 w-4" /> Solicitar Proposta
-              </a>
+                <button
+                  type="button"
+                  className="mt-6 inline-flex items-center justify-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold bg-white text-[color:var(--brand-dark)] hover:bg-white/90 transition"
+                >
+                  <MessageCircle className="h-4 w-4" /> Solicitar Proposta
+                </button>
+              </ServiceQuoteDialog>
             </div>
 
             {/* Card 4 — Consultoria Mensal */}
