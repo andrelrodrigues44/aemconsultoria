@@ -525,7 +525,7 @@ function Index() {
             <a href="#valores" className="hover:text-foreground transition">Valores</a>
             <a href="#diferenciais" className="hover:text-foreground transition">Diferenciais</a>
           </nav>
-          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
+          <a href={WHATSAPP_URL_WITH_MESSAGE} target="_blank" rel="noopener noreferrer"
              className="inline-flex items-center gap-2 rounded-md bg-brand-gradient text-white px-4 py-2 text-sm font-semibold shadow-md hover:shadow-lg transition">
             <MessageCircle className="h-4 w-4" /> Fale conosco
           </a>
