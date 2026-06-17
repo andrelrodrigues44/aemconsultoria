@@ -91,6 +91,7 @@ function Index() {
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
             <a href="#sobre" className="hover:text-foreground transition">Sobre</a>
             <a href="#pilares" className="hover:text-foreground transition">Soluções</a>
+            <a href="#produtos" className="hover:text-foreground transition">Produtos</a>
             <a href="#valores" className="hover:text-foreground transition">Valores</a>
             <a href="#diferenciais" className="hover:text-foreground transition">Diferenciais</a>
           </nav>
