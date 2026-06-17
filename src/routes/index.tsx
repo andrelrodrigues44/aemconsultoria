@@ -1160,7 +1160,7 @@ function Index() {
                 </a>
               </li>
             </ul>
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
+            <a href={WHATSAPP_URL_WITH_MESSAGE} target="_blank" rel="noopener noreferrer"
                className="mt-5 inline-flex items-center gap-2 rounded-md bg-brand-gradient px-4 py-2 text-white font-semibold hover:shadow-lg transition">
               <MessageCircle className="h-4 w-4" /> Falar no WhatsApp
             </a>
