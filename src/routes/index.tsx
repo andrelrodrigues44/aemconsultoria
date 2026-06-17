@@ -274,83 +274,238 @@ function Index() {
             </p>
           </div>
 
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              {
-                icon: FileSearch,
-                tag: "Entrada",
-                title: "Diagnóstico de Conformidade Ambiental e SST",
-                price: "R$ 297",
-                desc: "Avaliação inicial para identificar pontos críticos de conformidade na sua operação.",
-              },
-              {
-                icon: FileText,
-                tag: "Intermediário",
-                title: "Diagnóstico Completo + Relatório Técnico",
-                price: "R$ 997",
-                desc: "Análise aprofundada com relatório técnico detalhado e plano de ação prático.",
-              },
-              {
-                icon: ShieldAlert,
-                tag: "Premium",
-                title: "Auditoria de Conformidade Ambiental e SST",
-                price: "R$ 2.500 a R$ 5.000",
-                desc: "Auditoria completa nos padrões ISO 14001 e 45001 com laudo executivo.",
-                highlight: true,
-              },
-              {
-                icon: Repeat,
-                tag: "Recorrência",
-                title: "Consultoria Ambiental e SST Mensal",
-                price: "R$ 790 a R$ 1.500/mês",
-                desc: "Acompanhamento contínuo, suporte técnico e gestão da conformidade mês a mês.",
-              },
-            ].map(({ icon: Icon, tag, title, price, desc, highlight }) => (
-              <div
-                key={title}
-                className={`relative flex flex-col rounded-2xl p-6 lg:p-7 transition-all hover:-translate-y-1 ${
-                  highlight
-                    ? "bg-hero-gradient text-white border border-[color:var(--brand-light)]/30 shadow-2xl"
-                    : "bg-card border border-border hover:border-[color:var(--brand)] hover:shadow-lg"
-                }`}
-              >
-                {highlight && (
-                  <div className="absolute -top-3 right-5 rounded-full bg-brand-gradient text-white text-[10px] font-bold tracking-[0.15em] px-3 py-1 shadow-md">
-                    MAIS COMPLETO
-                  </div>
-                )}
-                <div className={`inline-flex h-12 w-12 items-center justify-center rounded-xl mb-4 shadow-md ${highlight ? "bg-white/15 text-brand" : "bg-brand-gradient text-white"}`}>
-                  <Icon className="h-6 w-6" strokeWidth={2.2} />
-                </div>
-                <div className={`text-[10px] font-bold tracking-[0.2em] ${highlight ? "text-brand" : "text-[color:var(--brand)]"}`}>
-                  {tag.toUpperCase()}
-                </div>
-                <h3 className={`mt-2 font-extrabold text-lg leading-tight ${highlight ? "text-white" : ""}`}>{title}</h3>
-                <p className={`mt-3 text-sm leading-relaxed flex-1 ${highlight ? "text-white/80" : "text-muted-foreground"}`}>
-                  {desc}
-                </p>
-                <div className={`mt-5 pt-5 border-t ${highlight ? "border-white/15" : "border-border"}`}>
-                  <div className={`text-[10px] font-semibold tracking-wider uppercase ${highlight ? "text-white/60" : "text-muted-foreground"}`}>
-                    Investimento
-                  </div>
-                  <div className={`mt-1 text-2xl font-extrabold ${highlight ? "text-brand" : "text-[color:var(--brand)]"}`}>
-                    {price}
-                  </div>
-                </div>
-                <a
-                  href={WHATSAPP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`mt-5 inline-flex items-center justify-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold transition ${
-                    highlight
-                      ? "bg-white text-[color:var(--brand-dark)] hover:bg-white/90"
-                      : "bg-brand-gradient text-white shadow-md hover:shadow-lg"
-                  }`}
-                >
-                  <MessageCircle className="h-4 w-4" /> Contratar
-                </a>
+          <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* Card 1 — Diagnóstico Inicial */}
+            <div className="relative flex flex-col rounded-2xl p-6 lg:p-8 bg-card border border-border hover:border-[color:var(--brand)] hover:shadow-lg transition-all hover:-translate-y-1">
+              <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl mb-4 shadow-md bg-brand-gradient text-white">
+                <FileSearch className="h-6 w-6" strokeWidth={2.2} />
               </div>
-            ))}
+              <div className="text-[10px] font-bold tracking-[0.2em] text-[color:var(--brand)]">ENTRADA</div>
+              <h3 className="mt-2 font-extrabold text-lg leading-tight">Diagnóstico de Conformidade Ambiental e SST</h3>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                Ideal para empresas que desejam entender rapidamente seu nível de conformidade.
+              </p>
+              <div className="mt-4 pt-4 border-t border-border">
+                <div className="text-[10px] font-semibold tracking-wider uppercase text-muted-foreground">Investimento</div>
+                <div className="mt-1 text-2xl font-extrabold text-[color:var(--brand)]">R$ 297</div>
+              </div>
+              <div className="mt-5">
+                <div className="text-xs font-bold tracking-wider uppercase text-muted-foreground mb-3">O que está incluso</div>
+                <ul className="space-y-2">
+                  {[
+                    "Avaliação preliminar dos requisitos legais aplicáveis",
+                    "Checklist de conformidade ambiental e SST",
+                    "Identificação de principais riscos e oportunidades de melhoria",
+                    "Relatório resumido com recomendações prioritárias",
+                    "Atendimento 100% online",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <CheckCircle2 className="h-4 w-4 text-[color:var(--brand)] shrink-0 mt-0.5" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="mt-5">
+                <div className="text-xs font-bold tracking-wider uppercase text-muted-foreground mb-2">Indicado para</div>
+                <ul className="space-y-1">
+                  {[
+                    "Pequenas e médias empresas",
+                    "Prestadores de serviços",
+                    "Empresas que nunca passaram por auditorias",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <span className="text-[color:var(--brand)] shrink-0">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex items-center justify-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold bg-brand-gradient text-white shadow-md hover:shadow-lg transition"
+              >
+                <MessageCircle className="h-4 w-4" /> Solicitar Diagnóstico
+              </a>
+            </div>
+
+            {/* Card 2 — Diagnóstico Completo */}
+            <div className="relative flex flex-col rounded-2xl p-6 lg:p-8 bg-card border border-border hover:border-[color:var(--brand)] hover:shadow-lg transition-all hover:-translate-y-1">
+              <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl mb-4 shadow-md bg-brand-gradient text-white">
+                <FileText className="h-6 w-6" strokeWidth={2.2} />
+              </div>
+              <div className="text-[10px] font-bold tracking-[0.2em] text-[color:var(--brand)]">INTERMEDIÁRIO</div>
+              <h3 className="mt-2 font-extrabold text-lg leading-tight">Diagnóstico Completo + Relatório Técnico</h3>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                Uma avaliação aprofundada para empresas que precisam de um plano de ação estruturado.
+              </p>
+              <div className="mt-4 pt-4 border-t border-border">
+                <div className="text-[10px] font-semibold tracking-wider uppercase text-muted-foreground">Investimento</div>
+                <div className="mt-1 text-2xl font-extrabold text-[color:var(--brand)]">R$ 997</div>
+              </div>
+              <div className="mt-5">
+                <div className="text-xs font-bold tracking-wider uppercase text-muted-foreground mb-3">O que está incluso</div>
+                <ul className="space-y-2">
+                  {[
+                    "Diagnóstico completo de conformidade",
+                    "Levantamento de requisitos legais aplicáveis",
+                    "Avaliação de documentos e controles internos",
+                    "Relatório técnico detalhado",
+                    "Plano de ação com prioridades de adequação",
+                    "Reunião online de apresentação dos resultados",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <CheckCircle2 className="h-4 w-4 text-[color:var(--brand)] shrink-0 mt-0.5" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="mt-5">
+                <div className="text-xs font-bold tracking-wider uppercase text-muted-foreground mb-2">Benefícios</div>
+                <ul className="space-y-1">
+                  {[
+                    "Redução de riscos regulatórios",
+                    "Maior segurança jurídica",
+                    "Preparação para auditorias e fiscalizações",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <span className="text-[color:var(--brand)] shrink-0">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex items-center justify-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold bg-brand-gradient text-white shadow-md hover:shadow-lg transition"
+              >
+                <MessageCircle className="h-4 w-4" /> Quero Meu Diagnóstico Completo
+              </a>
+            </div>
+
+            {/* Card 3 — Auditoria Premium */}
+            <div className="relative flex flex-col rounded-2xl p-6 lg:p-8 bg-hero-gradient text-white border border-[color:var(--brand-light)]/30 shadow-2xl transition-all hover:-translate-y-1">
+              <div className="absolute -top-3 right-5 rounded-full bg-brand-gradient text-white text-[10px] font-bold tracking-[0.15em] px-3 py-1 shadow-md">
+                MAIS COMPLETO
+              </div>
+              <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl mb-4 shadow-md bg-white/15 text-brand">
+                <ShieldAlert className="h-6 w-6" strokeWidth={2.2} />
+              </div>
+              <div className="text-[10px] font-bold tracking-[0.2em] text-brand">PREMIUM</div>
+              <h3 className="mt-2 font-extrabold text-lg leading-tight text-white">Auditoria de Conformidade Ambiental e SST</h3>
+              <p className="mt-2 text-sm text-white/80 leading-relaxed">
+                Serviço completo para empresas que desejam uma visão estratégica e aprofundada da sua conformidade legal.
+              </p>
+              <div className="mt-4 pt-4 border-t border-white/15">
+                <div className="text-[10px] font-semibold tracking-wider uppercase text-white/60">Investimento</div>
+                <div className="mt-1 text-2xl font-extrabold text-brand">R$ 2.500 a R$ 5.000</div>
+              </div>
+              <div className="mt-5">
+                <div className="text-xs font-bold tracking-wider uppercase text-white/60 mb-3">O que está incluso</div>
+                <ul className="space-y-2">
+                  {[
+                    "Auditoria documental",
+                    "Auditoria de campo",
+                    "Avaliação de requisitos ambientais e SST",
+                    "Identificação de desvios críticos",
+                    "Relatório executivo e técnico",
+                    "Plano de adequação",
+                    "Reunião de fechamento com a gestão",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-white/80">
+                      <CheckCircle2 className="h-4 w-4 text-brand shrink-0 mt-0.5" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="mt-5">
+                <div className="text-xs font-bold tracking-wider uppercase text-white/60 mb-2">Resultado esperado</div>
+                <ul className="space-y-1">
+                  {[
+                    "Redução da exposição a multas e autuações",
+                    "Melhoria dos processos internos",
+                    "Preparação para certificações ISO 14001 e ISO 45001",
+                    "Maior controle sobre requisitos legais",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-white/80">
+                      <span className="text-brand shrink-0">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex items-center justify-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold bg-white text-[color:var(--brand-dark)] hover:bg-white/90 transition"
+              >
+                <MessageCircle className="h-4 w-4" /> Solicitar Proposta
+              </a>
+            </div>
+
+            {/* Card 4 — Consultoria Mensal */}
+            <div className="relative flex flex-col rounded-2xl p-6 lg:p-8 bg-card border border-border hover:border-[color:var(--brand)] hover:shadow-lg transition-all hover:-translate-y-1">
+              <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl mb-4 shadow-md bg-brand-gradient text-white">
+                <Repeat className="h-6 w-6" strokeWidth={2.2} />
+              </div>
+              <div className="text-[10px] font-bold tracking-[0.2em] text-[color:var(--brand)]">RECORRÊNCIA</div>
+              <h3 className="mt-2 font-extrabold text-lg leading-tight">Consultoria Mensal Ambiental e SST</h3>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                Tenha suporte especializado para manter sua empresa em conformidade durante todo o ano.
+              </p>
+              <div className="mt-4 pt-4 border-t border-border">
+                <div className="text-[10px] font-semibold tracking-wider uppercase text-muted-foreground">Investimento</div>
+                <div className="mt-1 text-2xl font-extrabold text-[color:var(--brand)]">R$ 790 a R$ 1.500/mês</div>
+              </div>
+              <div className="mt-5">
+                <div className="text-xs font-bold tracking-wider uppercase text-muted-foreground mb-3">O que está incluso</div>
+                <ul className="space-y-2">
+                  {[
+                    "Suporte técnico especializado",
+                    "Atualização de requisitos legais",
+                    "Orientação para auditorias",
+                    "Reuniões periódicas",
+                    "Apoio na gestão ambiental e SST",
+                    "Acompanhamento de planos de ação",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <CheckCircle2 className="h-4 w-4 text-[color:var(--brand)] shrink-0 mt-0.5" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="mt-5">
+                <div className="text-xs font-bold tracking-wider uppercase text-muted-foreground mb-2">Ideal para</div>
+                <ul className="space-y-1">
+                  {[
+                    "Empresas sem equipe própria de meio ambiente e SST",
+                    "Organizações que desejam terceirizar a gestão de conformidade",
+                    "Empresas em fase de crescimento",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <span className="text-[color:var(--brand)] shrink-0">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex items-center justify-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold bg-brand-gradient text-white shadow-md hover:shadow-lg transition"
+              >
+                <MessageCircle className="h-4 w-4" /> Contratar Consultoria Mensal
+              </a>
+            </div>
           </div>
         </div>
       </section>
