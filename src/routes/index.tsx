@@ -92,6 +92,7 @@ function Index() {
             <a href="#sobre" className="hover:text-foreground transition">Sobre</a>
             <a href="#pilares" className="hover:text-foreground transition">Soluções</a>
             <a href="#produtos" className="hover:text-foreground transition">Produtos</a>
+            <a href="#treinamentos" className="hover:text-foreground transition">Treinamentos</a>
             <a href="#valores" className="hover:text-foreground transition">Valores</a>
             <a href="#diferenciais" className="hover:text-foreground transition">Diferenciais</a>
           </nav>
