@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Leaf, HardHat, ClipboardCheck, TrendingUp, ShieldCheck, Users, Scale, Target, CheckCircle2, ArrowRight, MessageCircle, Quote, Award, BookOpen, GraduationCap, Mail, Instagram, Linkedin, MapPin, FileSearch, FileText, ShieldAlert, Repeat } from "lucide-react";
+import { Leaf, HardHat, ClipboardCheck, TrendingUp, ShieldCheck, Users, Scale, Target, CheckCircle2, ArrowRight, MessageCircle, Quote, Award, BookOpen, GraduationCap, Mail, Instagram, Linkedin, MapPin, FileSearch, FileText, ShieldAlert, Repeat, Brain } from "lucide-react";
 import professionalAsset from "@/assets/am-professional.png.asset.json";
 import heroAsset from "@/assets/am-hero.png.asset.json";
 import handshakeAsset from "@/assets/handshake.jpg.asset.json";
@@ -695,6 +695,63 @@ function Index() {
           </div>
 
           <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* Card Destaque — Gestão de Riscos Psicossociais */}
+            <div className="relative flex flex-col rounded-2xl p-6 lg:p-8 bg-hero-gradient text-white border border-[color:var(--brand-light)]/30 shadow-2xl transition-all hover:-translate-y-1">
+              <div className="absolute -top-3 right-5 rounded-full bg-brand-gradient text-white text-[10px] font-bold tracking-[0.15em] px-3 py-1 shadow-md">
+                DESTAQUE / NOVO
+              </div>
+              <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl mb-4 shadow-md bg-white/15 text-brand">
+                <Brain className="h-6 w-6" strokeWidth={2.2} />
+              </div>
+              <div className="text-[10px] font-bold tracking-[0.2em] text-brand">NOVO SERVIÇO</div>
+              <h3 className="mt-2 font-extrabold text-lg leading-tight text-white">Gestão de Riscos Psicossociais (FRPRT)</h3>
+              <p className="mt-2 text-sm text-white/80 leading-relaxed">
+                Atenda à exigência da NR-1 sobre fatores de risco psicossocial relacionados ao trabalho — antes da fiscalização chegar.
+              </p>
+              <div className="mt-4 pt-4 border-t border-white/15">
+                <div className="text-[10px] font-semibold tracking-wider uppercase text-white/60">Investimento</div>
+                <div className="mt-1 text-2xl font-extrabold text-brand">a partir de R$ 1.200</div>
+              </div>
+              <div className="mt-5">
+                <div className="text-xs font-bold tracking-wider uppercase text-white/60 mb-3">O que está incluso</div>
+                <ul className="space-y-2">
+                  {[
+                    "Levantamento dos Fatores de Risco Psicossocial Relacionados ao Trabalho (FRPRT)",
+                    "Inventário de riscos integrado ao PGR",
+                    "Aplicação de instrumento de avaliação e análise de resultados",
+                    "Plano de ação e medidas de controle",
+                    "Relatório técnico para auditoria e fiscalização",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-white/80">
+                      <CheckCircle2 className="h-4 w-4 text-brand shrink-0 mt-0.5" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="mt-5">
+                <div className="text-xs font-bold tracking-wider uppercase text-white/60 mb-2">Indicado para</div>
+                <ul className="space-y-1">
+                  {[
+                    "Empresas que precisam adequar o PGR à NR-1",
+                    "Organizações que buscam reduzir afastamentos e passivos trabalhistas",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-white/80">
+                      <span className="text-brand shrink-0">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex items-center justify-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold bg-white text-[color:var(--brand-dark)] hover:bg-white/90 transition"
+              >
+                <MessageCircle className="h-4 w-4" /> Solicitar proposta → WhatsApp
+              </a>
+            </div>
             {/* Card 1 — Diagnóstico Inicial */}
             <div className="relative flex flex-col rounded-2xl p-6 lg:p-8 bg-card border border-border hover:border-[color:var(--brand)] hover:shadow-lg transition-all hover:-translate-y-1">
               <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl mb-4 shadow-md bg-brand-gradient text-white">
