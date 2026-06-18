@@ -16,21 +16,27 @@ const WHATSAPP_PHONE = "5531992293261";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_PHONE}`;
 
 const TRAININGS = [
+  "NR-01 – Gerenciamento de Riscos Ocupacionais (GRO/PGR)",
   "NR-05 – CIPA",
   "NR-06 – EPI",
+  "NR-07 – PCMSO",
   "NR-10 – Eletricidade",
   "NR-11 – Movimentação e Transporte de Materiais",
   "NR-12 – Máquinas e Equipamentos",
+  "NR-13 – Caldeiras e Vasos de Pressão",
   "NR-18 – Construção Civil",
   "NR-20 – Inflamáveis e Combustíveis",
   "NR-23 – Proteção e Combate a Incêndios",
   "NR-26 – Sinalização de Segurança e Produtos Químicos",
   "NR-33 – Espaço Confinado",
   "NR-35 – Trabalho em Altura",
+  "Riscos Psicossociais no Trabalho (NR-1 / FRPRT)",
   "Integração de Segurança",
   "Percepção de Riscos",
   "Gestão Ambiental",
   "Atendimento a Emergências",
+  "Primeiros Socorros",
+  "Formação de Auditor Interno ISO 14001 e ISO 45001",
   "Outro",
 ];
 
