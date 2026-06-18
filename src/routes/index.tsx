@@ -656,7 +656,7 @@ function Index() {
                 <img src={professionalAsset.url} alt="Consultor A&M" className="h-full w-full object-cover" />
               </div>
               <div className="absolute -bottom-6 -right-6 bg-brand-gradient text-white p-5 rounded-xl shadow-xl max-w-[200px]">
-                <div className="text-3xl font-extrabold">+10</div>
+                <div className="text-3xl font-extrabold">+15</div>
                 <div className="text-xs font-medium opacity-90">anos de profissionalismo transformando conformidades em resultados</div>
               </div>
             </div>
