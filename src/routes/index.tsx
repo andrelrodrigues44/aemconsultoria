@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Leaf, HardHat, ClipboardCheck, TrendingUp, ShieldCheck, Users, Scale, Target, CheckCircle2, ArrowRight, MessageCircle, Quote, Award, BookOpen, GraduationCap, Mail, Instagram, Linkedin, MapPin, FileSearch, FileText, ShieldAlert, Repeat, Brain } from "lucide-react";
+import { Leaf, HardHat, ClipboardCheck, TrendingUp, ShieldCheck, Users, Scale, Target, CheckCircle2, ArrowRight, MessageCircle, Quote, Award, BookOpen, GraduationCap, Mail, Instagram, Linkedin, MapPin, FileSearch, FileText, ShieldAlert, Repeat, Brain, HelpCircle } from "lucide-react";
 import professionalAsset from "@/assets/am-professional.png.asset.json";
 import heroAsset from "@/assets/am-hero.png.asset.json";
 import handshakeAsset from "@/assets/handshake.jpg.asset.json";
@@ -11,6 +11,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 
 const WHATSAPP_PHONE = "5531992293261";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_PHONE}`;
