@@ -1159,7 +1159,11 @@ function Index() {
         <div className="border-t border-white/10">
           <div className="mx-auto max-w-7xl px-5 lg:px-8 py-5 text-xs text-white/50 flex flex-wrap justify-between gap-2">
             <span>© {new Date().getFullYear()} A&amp;M Consultoria Ambiental e SST. Todos os direitos reservados.</span>
-            <span>Meio Ambiente · Segurança do Trabalho</span>
+            <div className="flex items-center gap-3">
+              <span>Meio Ambiente · Segurança do Trabalho</span>
+              <span className="text-white/20">|</span>
+              <Link to="/politica-de-privacidade" className="hover:text-brand transition">Política de Privacidade</Link>
+            </div>
           </div>
         </div>
       </footer>
