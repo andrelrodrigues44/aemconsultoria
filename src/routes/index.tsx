@@ -590,6 +590,62 @@ function Index() {
         </div>
       </section>
 
+      {/* POR QUE CONFIAR NA A&M */}
+      <section className="py-16 lg:py-20 bg-card border-y border-border">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-muted px-4 py-1.5 text-[10px] font-bold tracking-[0.2em] text-muted-foreground uppercase">
+              <ShieldCheck className="h-3.5 w-3.5 text-[color:var(--brand)]" />
+              Credibilidade
+            </div>
+            <h2 className="mt-4 text-3xl sm:text-4xl font-extrabold tracking-tight">
+              Por que confiar na <span className="text-[color:var(--brand)]">A&amp;M</span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { number: "+15", label: "anos", desc: "De atuação em campo, do chão de fábrica à gestão de equipes especializadas" },
+              { number: "2", label: "setores críticos", desc: "Mineração e indústria automobilística" },
+              { number: "ISO", label: "45001 + 14001", desc: "Auditoria pelos mesmos padrões que as certificadoras exigem" },
+              { number: "100%", label: "técnico", desc: "Conduzido por Auditor Líder, não por intermediários" },
+            ].map((item) => (
+              <div key={item.label} className="relative rounded-2xl border border-border bg-background p-6 text-center shadow-sm hover:shadow-md transition">
+                <div className="text-4xl sm:text-5xl font-extrabold text-[color:var(--brand-dark)] leading-none tracking-tight">
+                  {item.number}
+                </div>
+                <div className="mt-1 text-sm font-bold text-[color:var(--brand)] uppercase tracking-wide">
+                  {item.label}
+                </div>
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12">
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              {[
+                "Auditor Líder ISO 45001",
+                "Auditor ISO 14001",
+                "Engenharia Ambiental",
+                "Técnico em Segurança do Trabalho",
+                "Pós em Segurança do Trabalho",
+              ].map((badge) => (
+                <span
+                  key={badge}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted px-4 py-2 text-xs font-semibold text-foreground"
+                >
+                  <Award className="h-3.5 w-3.5 text-[color:var(--brand)]" />
+                  {badge}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* SOBRE */}
       <section id="sobre" className="py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-5 lg:px-8 grid lg:grid-cols-12 gap-12 items-center">
