@@ -1173,6 +1173,52 @@ function Index() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section id="faq" className="py-16 lg:py-24 bg-background">
+        <div className="mx-auto max-w-3xl px-5 lg:px-8">
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center gap-2 rounded-full bg-[color:var(--brand-light)]/15 px-3 py-1 text-xs font-semibold tracking-wide text-[color:var(--brand-dark)] mb-3">
+              <HelpCircle className="h-3.5 w-3.5" /> PERGUNTAS FREQUENTES
+            </div>
+            <h2 className="text-3xl lg:text-4xl font-extrabold text-[color:var(--ink)]">Tire suas dúvidas</h2>
+            <p className="mt-3 text-base text-muted-foreground max-w-xl mx-auto">Respostas rápidas sobre nossos serviços, prazos e modalidades de atendimento.</p>
+          </div>
+
+          <Accordion type="single" collapsible className="w-full">
+            <AccordionItem value="item-1">
+              <AccordionTrigger>Vocês atendem presencial ou online?</AccordionTrigger>
+              <AccordionContent>
+                Ambos. Diagnósticos e consultorias podem ser 100% online; auditorias de campo e treinamentos presenciais são agendados conforme a localização.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-2">
+              <AccordionTrigger>Atendem todo o Brasil?</AccordionTrigger>
+              <AccordionContent>
+                Sim, com atendimento remoto em todo o país e presencial conforme demanda.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-3">
+              <AccordionTrigger>Qual o prazo de entrega de um diagnóstico?</AccordionTrigger>
+              <AccordionContent>
+                Em média de 5 a 10 dias úteis após o envio das informações, dependendo do porte da empresa.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-4">
+              <AccordionTrigger>Preciso ter equipe interna de SST?</AccordionTrigger>
+              <AccordionContent>
+                Não. Atendemos empresas sem equipe própria por meio da consultoria mensal.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-5">
+              <AccordionTrigger>Como recebo a proposta?</AccordionTrigger>
+              <AccordionContent>
+                Pelo WhatsApp ou e-mail, após uma conversa inicial para entender sua necessidade.
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </div>
+      </section>
+
       {/* FOOTER */}
       <footer className="bg-[color:var(--ink)] text-white/70">
         <div className="mx-auto max-w-7xl px-5 lg:px-8 py-12 grid md:grid-cols-3 gap-8 items-start">
