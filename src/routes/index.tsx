@@ -1031,11 +1031,15 @@ function Index() {
 
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
+              "NR-01 – Gerenciamento de Riscos Ocupacionais (GRO/PGR)",
+              "Riscos Psicossociais no Trabalho (NR-1 / FRPRT)",
               "NR-05 – Comissão Interna de Prevenção de Acidentes (CIPA)",
               "NR-06 – Equipamentos de Proteção Individual (EPI)",
+              "NR-07 – PCMSO",
               "NR-10 – Segurança em Instalações e Serviços em Eletricidade",
               "NR-11 – Movimentação e Transporte de Materiais",
               "NR-12 – Segurança em Máquinas e Equipamentos",
+              "NR-13 – Caldeiras e Vasos de Pressão",
               "NR-18 – Condições e Meio Ambiente na Construção Civil",
               "NR-20 – Segurança com Inflamáveis e Combustíveis",
               "NR-23 – Proteção e Combate a Incêndio",
@@ -1045,6 +1049,8 @@ function Index() {
               "Integração de Segurança para Colaboradores e Terceiros",
               "Gestão de Resíduos e Meio Ambiente",
               "Atendimento a Emergências",
+              "Primeiros Socorros",
+              "Formação de Auditor Interno ISO 14001 e ISO 45001",
               "Percepção de Riscos e Comportamento Seguro",
               "Treinamentos personalizados conforme necessidade da empresa",
             ].map((item) => (
