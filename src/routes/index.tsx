@@ -862,7 +862,7 @@ function Index() {
                 </ul>
               </div>
               <a
-                href="https://mpago.la/24oheiV"
+                href="https://mpago.li/2ofxRHm"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-6 inline-flex items-center justify-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold bg-brand-gradient text-white shadow-md hover:shadow-lg transition"
