@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pagamento confirmado — Diagnóstico de Conformidade | A&M Consultoria</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Hanken+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16241D;
+    --pine:#1C5B3B;
+    --pine-deep:#0F3D27;
+    --paper:#F4F1E8;
+    --card:#FBFAF4;
+    --sage:#DDE5D8;
+    --sage-line:#C9D4C2;
+    --gold:#BE9A4E;
+    --muted:#5C6B60;
+    --shadow:0 1px 2px rgba(15,61,39,.06), 0 12px 32px -16px rgba(15,61,39,.28);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Hanken Grotesk',system-ui,sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 22px}
+
+  /* ---------- header ---------- */
+  header.site{
+    border-bottom:1px solid var(--sage-line);
+    background:rgba(244,241,232,.85);
+    backdrop-filter:blur(6px);
+    position:sticky;top:0;z-index:10;
+  }
+  .brand{display:flex;align-items:center;gap:11px;padding:16px 0}
+  .brand svg{flex:none}
+  .brand .name{font-family:'Fraunces',serif;font-weight:600;font-size:18px;letter-spacing:-.01em;line-height:1.05}
+  .brand .name span{display:block;font-family:'Spline Sans Mono',monospace;font-weight:400;font-size:10px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;margin-top:2px}
+
+  /* ---------- hero / confirmation ---------- */
+  .hero{padding:54px 0 12px;text-align:center}
+  .seal{
+    width:78px;height:78px;margin:0 auto 26px;border-radius:50%;
+    display:grid;place-items:center;
+    background:radial-gradient(circle at 30% 25%, #2a7a52, var(--pine) 70%);
+    box-shadow:0 0 0 8px rgba(28,91,59,.10), 0 14px 30px -12px rgba(15,61,39,.55);
+    animation:pop .6s cubic-bezier(.2,.8,.2,1) both;
+  }
+  .seal svg{width:38px;height:38px}
+  .seal .check{stroke-dasharray:30;stroke-dashoffset:30;animation:draw .5s .35s ease forwards}
+  @keyframes pop{from{transform:scale(.4);opacity:0}to{transform:scale(1);opacity:1}}
+  @keyframes draw{to{stroke-dashoffset:0}}
+
+  .eyebrow{font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--pine);font-weight:500}
+  .hero h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(30px,6vw,44px);line-height:1.05;letter-spacing:-.02em;margin:14px 0 14px}
+  .hero p.lead{font-size:17px;color:var(--muted);max-width:48ch;margin:0 auto}
+
+  .protocol{
+    display:inline-flex;align-items:center;gap:10px;margin-top:26px;
+    padding:9px 16px;border:1px solid var(--sage-line);border-radius:999px;background:var(--card);
+    font-family:'Spline Sans Mono',monospace;font-size:13px;
+  }
+  .protocol b{color:var(--pine-deep);font-weight:500}
+  .protocol .dot{width:7px;height:7px;border-radius:50%;background:var(--gold)}
+
+  /* ---------- steps ---------- */
+  section{padding:40px 0}
+  .sec-label{font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+  .steps{display:flex;flex-direction:column;gap:0;position:relative}
+  .step{display:flex;gap:18px;padding:18px 0;position:relative}
+  .step:not(:last-child)::before{content:"";position:absolute;left:17px;top:46px;bottom:-18px;width:2px;background:var(--sage-line)}
+  .step .num{
+    flex:none;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;
+    font-family:'Spline Sans Mono',monospace;font-size:14px;font-weight:500;
+    border:2px solid var(--sage-line);background:var(--card);color:var(--muted);z-index:1;
+  }
+  .step.done .num{background:var(--pine);border-color:var(--pine);color:#fff}
+  .step.active .num{border-color:var(--gold);color:var(--pine-deep);box-shadow:0 0 0 5px rgba(190,154,78,.14)}
+  .step h3{font-family:'Fraunces',serif;font-weight:600;font-size:18px;line-height:1.2;margin-bottom:3px}
+  .step.done h3{color:var(--pine)}
+  .step p{font-size:15px;color:var(--muted)}
+  .step .tag{display:inline-block;margin-top:6px;font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.05em;color:var(--pine);background:rgba(28,91,59,.08);padding:3px 9px;border-radius:5px}
+
+  /* ---------- form ---------- */
+  .formcard{background:var(--card);border:1px solid var(--sage-line);border-radius:16px;padding:30px 26px;box-shadow:var(--shadow)}
+  .formcard h2{font-family:'Fraunces',serif;font-weight:600;font-size:23px;letter-spacing:-.01em;margin-bottom:6px}
+  .formcard .sub{font-size:15px;color:var(--muted);margin-bottom:26px}
+  .fgroup{margin-bottom:30px}
+  .fgroup > legend{font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--pine);font-weight:500;margin-bottom:14px;display:block;border:0;padding:0;width:100%}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .field{margin-bottom:14px}
+  .field.full{grid-column:1/-1}
+  label{display:block;font-size:13px;font-weight:600;margin-bottom:6px;color:var(--ink)}
+  label .opt{font-weight:400;color:var(--muted);font-family:'Spline Sans Mono',monospace;font-size:10px;letter-spacing:.03em}
+  input,select,textarea{
+    width:100%;font-family:inherit;font-size:15px;color:var(--ink);
+    padding:11px 13px;border:1px solid var(--sage-line);border-radius:9px;background:#fff;
+    transition:border-color .15s, box-shadow .15s;
+  }
+  textarea{resize:vertical;min-height:84px}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--pine);box-shadow:0 0 0 3px rgba(28,91,59,.13)}
+  .checks{display:flex;flex-wrap:wrap;gap:9px}
+  .chk{display:flex;align-items:center;gap:8px;font-size:13.5px;border:1px solid var(--sage-line);border-radius:8px;padding:9px 12px;cursor:pointer;background:#fff;transition:.15s;user-select:none}
+  .chk:hover{border-color:var(--pine)}
+  .chk input{width:auto;margin:0;accent-color:var(--pine)}
+  .chk:has(input:checked){background:rgba(28,91,59,.07);border-color:var(--pine)}
+
+  .submit{
+    width:100%;border:0;border-radius:10px;cursor:pointer;
+    background:var(--pine);color:#fff;font-family:inherit;font-weight:600;font-size:16px;
+    padding:15px;letter-spacing:.01em;transition:background .15s, transform .05s;
+  }
+  .submit:hover{background:var(--pine-deep)}
+  .submit:active{transform:translateY(1px)}
+  .submit:disabled{opacity:.6;cursor:not-allowed}
+  .formnote{font-size:12.5px;color:var(--muted);text-align:center;margin-top:13px}
+
+  /* ---------- states ---------- */
+  .state{display:none;text-align:center;padding:18px 0}
+  .state.show{display:block;animation:pop .4s ease both}
+  .state.ok h2{color:var(--pine)}
+  .state .wa{display:inline-flex;align-items:center;gap:9px;margin-top:18px;background:#1C5B3B;color:#fff;text-decoration:none;font-weight:600;font-size:15px;padding:12px 20px;border-radius:10px}
+  .state.err .wa{background:var(--gold);color:var(--ink)}
+
+  /* ---------- footer ---------- */
+  footer.site{border-top:1px solid var(--sage-line);margin-top:30px;padding:32px 0 44px;text-align:center}
+  .creds{font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.04em;color:var(--muted);line-height:1.9}
+  .creds b{color:var(--pine-deep);font-weight:500}
+  footer .wa-link{color:var(--pine);text-decoration:none;font-weight:600;font-size:14px}
+
+  @media(max-width:560px){
+    .grid2{grid-template-columns:1fr}
+    .hero{padding:40px 0 8px}
+    .formcard{padding:24px 18px}
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important;transition:none !important}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     LOGO: troque o SVG abaixo pelo seu logo real (escudo + folha).
+     Ex.: <img src="logo-am.png" alt="A&M Consultoria" height="36">
+     ============================================================ -->
+<header class="site">
+  <div class="wrap">
+    <div class="brand">
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true">
+        <path d="M17 2 L30 6 V16 C30 24 24 30 17 32 C10 30 4 24 4 16 V6 Z" fill="#1C5B3B"/>
+        <path d="M17 10 C13 13 12 18 14 23 C18 20 21 16 17 10 Z" fill="#fff"/>
+        <path d="M14 23 C14 19 15.5 15.5 17 13" stroke="#BE9A4E" stroke-width="1.3" stroke-linecap="round"/>
+      </svg>
+      <div class="name">A&amp;M Consultoria
+        <span>Segurança do Trabalho &amp; Meio Ambiente</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- ============ HERO / CONFIRMAÇÃO ============ -->
+  <div class="hero">
+    <div class="seal">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path class="check" d="M5 12.5 L10 17.5 L19 7" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="eyebrow">Pagamento confirmado</div>
+    <h1>Seu diagnóstico foi iniciado.</h1>
+    <p class="lead">Recebemos seu pagamento do <b>Diagnóstico de Conformidade Legal</b>. Falta só um passo seu para começarmos a análise.</p>
+    <div class="protocol">
+      <span class="dot"></span>
+      Protocolo <b id="proto">A&amp;M-DIAG-…</b>
+    </div>
+  </div>
+
+  <!-- ============ ETAPAS ============ -->
+  <section>
+    <div class="sec-label">Como funciona a partir daqui</div>
+    <div class="steps">
+      <div class="step done">
+        <div class="num">✓</div>
+        <div>
+          <h3>Pagamento confirmado</h3>
+          <p>Tudo certo com sua compra. Você vai receber o comprovante no e-mail do Mercado Pago.</p>
+        </div>
+      </div>
+      <div class="step active">
+        <div class="num">2</div>
+        <div>
+          <h3>Preencha o briefing</h3>
+          <p>São poucos minutos. É com essas informações que monto seu diagnóstico — quanto mais preciso, melhor o resultado.</p>
+          <span class="tag">← você está aqui</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <div>
+          <h3>Receba seu diagnóstico</h3>
+          <p>Em até <b>5 dias úteis</b> após o briefing, você recebe o relatório com a leitura de conformidade e as prioridades de ação.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BRIEFING ============ -->
+  <section style="padding-top:8px">
+    <div class="formcard">
+      <div id="formWrap">
+        <h2>Briefing do diagnóstico</h2>
+        <p class="sub">Conte sobre a empresa e a situação atual. Campos marcados como opcionais podem ficar em branco.</p>
+
+        <!-- IMPORTANTE: troque a action pelo SEU endpoint do Formspree (formspree.io) -->
+        <form id="briefing" action="https://formspree.io/f/SEU_ENDPOINT_AQUI" method="POST">
+
+          <fieldset class="fgroup">
+            <legend>01 — Dados da empresa</legend>
+            <div class="grid2">
+              <div class="field full">
+                <label for="razao">Empresa / Razão social</label>
+                <input id="razao" name="Empresa" required>
+              </div>
+              <div class="field">
+                <label for="doc">CNPJ ou CPF</label>
+                <input id="doc" name="CNPJ/CPF" required>
+              </div>
+              <div class="field">
+                <label for="cnae">CNAE principal <span class="opt">(opcional)</span></label>
+                <input id="cnae" name="CNAE" placeholder="ex: 07.10-3/01">
+              </div>
+              <div class="field">
+                <label for="cidade">Município / UF</label>
+                <input id="cidade" name="Município/UF" required>
+              </div>
+              <div class="field">
+                <label for="setor">Setor</label>
+                <select id="setor" name="Setor" required>
+                  <option value="" disabled selected>Selecione…</option>
+                  <option>Mineração</option>
+                  <option>Indústria</option>
+                  <option>Automobilístico</option>
+                  <option>Agronegócio</option>
+                  <option>Construção</option>
+                  <option>Serviços</option>
+                  <option>Órgão público</option>
+                  <option>Outro</option>
+                </select>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="fgroup">
+            <legend>02 — Contato</legend>
+            <div class="grid2">
+              <div class="field">
+                <label for="nome">Seu nome</label>
+                <input id="nome" name="Contato" required>
+              </div>
+              <div class="field">
+                <label for="cargo">Cargo <span class="opt">(opcional)</span></label>
+                <input id="cargo" name="Cargo">
+              </div>
+              <div class="field">
+                <label for="email">E-mail</label>
+                <input id="email" name="E-mail" type="email" required>
+              </div>
+              <div class="field">
+                <label for="zap">WhatsApp</label>
+                <input id="zap" name="WhatsApp" type="tel" required placeholder="(31) 9 0000-0000">
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="fgroup">
+            <legend>03 — Perfil operacional</legend>
+            <div class="grid2">
+              <div class="field">
+                <label for="colab">Nº de colaboradores</label>
+                <select id="colab" name="Colaboradores" required>
+                  <option value="" disabled selected>Selecione…</option>
+                  <option>Até 19</option>
+                  <option>20 a 49</option>
+                  <option>50 a 99</option>
+                  <option>100 a 249</option>
+                  <option>250+</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="unidades">Nº de unidades / instalações <span class="opt">(opcional)</span></label>
+                <input id="unidades" name="Unidades" placeholder="ex: 1">
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="fgroup">
+            <legend>04 — O que você já tem hoje</legend>
+            <label style="margin-bottom:10px">Marque os itens que a empresa já possui <span class="opt">(opcional)</span></label>
+            <div class="checks">
+              <label class="chk"><input type="checkbox" name="Possui" value="PGR"> PGR</label>
+              <label class="chk"><input type="checkbox" name="Possui" value="PCMSO"> PCMSO</label>
+              <label class="chk"><input type="checkbox" name="Possui" value="LTCAT"> LTCAT</label>
+              <label class="chk"><input type="checkbox" name="Possui" value="Laudos NR"> Laudos de NR</label>
+              <label class="chk"><input type="checkbox" name="Possui" value="CIPA"> CIPA</label>
+              <label class="chk"><input type="checkbox" name="Possui" value="Treinamentos NR"> Treinamentos de NR</label>
+              <label class="chk"><input type="checkbox" name="Possui" value="Licença ambiental"> Licença ambiental</label>
+              <label class="chk"><input type="checkbox" name="Possui" value="ISO 14001/45001"> ISO 14001/45001</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="fgroup">
+            <legend>05 — O que te trouxe aqui</legend>
+            <div class="field full">
+              <label for="motivo">Principal motivo / dor a resolver</label>
+              <textarea id="motivo" name="Motivo" required placeholder="Ex: recebemos uma autuação, um cliente está exigindo conformidade, vamos passar por auditoria, queremos implantar ISO…"></textarea>
+            </div>
+            <div class="field full">
+              <label for="prazo">Tem algum prazo ou urgência? <span class="opt">(opcional)</span></label>
+              <input id="prazo" name="Prazo" placeholder="ex: auditoria em 30 dias">
+            </div>
+          </fieldset>
+
+          <input type="hidden" name="Protocolo" id="protoHidden">
+          <input type="hidden" name="_subject" value="Novo briefing — Diagnóstico R$497">
+
+          <button type="submit" class="submit" id="btn">Enviar briefing e iniciar diagnóstico</button>
+          <p class="formnote">Tem documentos para anexar (PGR, licenças, laudos)? Envie por WhatsApp após o briefing.</p>
+        </form>
+      </div>
+
+      <!-- sucesso -->
+      <div class="state ok" id="ok">
+        <div class="eyebrow" style="color:var(--pine)">Briefing recebido</div>
+        <h2 style="font-family:'Fraunces',serif;font-size:26px;margin:10px 0 8px">Prontinho. Já estou com tudo.</h2>
+        <p style="color:var(--muted);max-width:44ch;margin:0 auto">Seu diagnóstico entra na fila de análise. Você recebe o relatório em até <b>5 dias úteis</b>. Se quiser adiantar o envio de documentos, fale comigo:</p>
+        <a class="wa" id="waOk" href="#" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.821 11.821 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.215z"/></svg>
+          Enviar documentos no WhatsApp
+        </a>
+      </div>
+
+      <!-- erro / fallback -->
+      <div class="state err" id="err">
+        <div class="eyebrow" style="color:var(--gold)">Quase lá</div>
+        <h2 style="font-family:'Fraunces',serif;font-size:24px;margin:10px 0 8px">Não consegui enviar o briefing por aqui.</h2>
+        <p style="color:var(--muted);max-width:46ch;margin:0 auto">Sem problema — me chame no WhatsApp com o número do protocolo e eu coleto suas informações direto por lá.</p>
+        <a class="wa" id="waErr" href="#" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.821 11.821 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.215z"/></svg>
+          Falar no WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer class="site">
+  <div class="wrap">
+    <p class="creds">
+      <b>André Luis Rodrigues</b> — Eng. Ambiental e de Segurança do Trabalho<br>
+      Auditor Líder ISO 45001 · Auditor ISO 14001 · +15 anos em mineração e indústria<br>
+      A&amp;M Consultoria Ambiental e SST
+    </p>
+    <p style="margin-top:14px"><a class="wa-link" href="https://wa.me/5531992293261" target="_blank" rel="noopener">WhatsApp direto →</a></p>
+  </div>
+</footer>
+
+<script>
+  // ===== CONFIG: troque pelo seu número (só dígitos, com 55) =====
+  var WHATSAPP = "5531992293261";
+
+  // protocolo único por cliente
+  (function(){
+    var d = new Date();
+    var ymd = d.getFullYear().toString()
+            + String(d.getMonth()+1).padStart(2,'0')
+            + String(d.getDate()).padStart(2,'0');
+    var rnd = Math.random().toString(36).slice(2,6).toUpperCase();
+    var proto = "A&M-DIAG-" + ymd + "-" + rnd;
+    document.getElementById('proto').textContent = proto;
+    document.getElementById('protoHidden').value = proto;
+
+    var waBase = "https://wa.me/" + WHATSAPP + "?text=";
+    var msg = encodeURIComponent("Olá! Acabei de pagar o Diagnóstico de Conformidade. Protocolo " + proto + ".");
+    document.getElementById('waOk').href  = waBase + msg;
+    document.getElementById('waErr').href = waBase + msg;
+  })();
+
+  // envio do briefing via WhatsApp (sem dependência externa)
+  var form = document.getElementById('briefing');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var btn = document.getElementById('btn');
+    btn.disabled = true; btn.textContent = "Abrindo WhatsApp…";
+
+    try {
+      var fd = new FormData(form);
+      var proto = document.getElementById('protoHidden').value;
+      var lines = ["*Novo briefing — Diagnóstico R$497*", "Protocolo: " + proto, ""];
+      var possui = [];
+      fd.forEach(function(value, key){
+        if (key === '_subject' || key === 'Protocolo') return;
+        if (key === 'Possui') { possui.push(value); return; }
+        if (value && String(value).trim() !== '') lines.push("*" + key + ":* " + value);
+      });
+      if (possui.length) lines.push("*Já possui:* " + possui.join(', '));
+      var msg = encodeURIComponent(lines.join("\n"));
+      window.open("https://wa.me/" + WHATSAPP + "?text=" + msg, "_blank");
+      show('ok');
+    } catch(err) {
+      show('err');
+    }
+  });
+
+  function show(which){
+    document.getElementById('formWrap').style.display = 'none';
+    document.getElementById(which).classList.add('show');
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+</script>
+</body>
+</html>
