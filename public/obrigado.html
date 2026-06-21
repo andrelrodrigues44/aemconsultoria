@@ -395,21 +395,30 @@
     document.getElementById('waErr').href = waBase + msg;
   })();
 
-  // envio AJAX (mantém o cliente na página)
+  // envio do briefing via WhatsApp (sem dependência externa)
   var form = document.getElementById('briefing');
   form.addEventListener('submit', function(e){
     e.preventDefault();
     var btn = document.getElementById('btn');
-    btn.disabled = true; btn.textContent = "Enviando…";
+    btn.disabled = true; btn.textContent = "Abrindo WhatsApp…";
 
-    fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
-    }).then(function(r){
-      if(r.ok){ show('ok'); }
-      else { show('err'); }
-    }).catch(function(){ show('err'); });
+    try {
+      var fd = new FormData(form);
+      var proto = document.getElementById('protoHidden').value;
+      var lines = ["*Novo briefing — Diagnóstico R$497*", "Protocolo: " + proto, ""];
+      var possui = [];
+      fd.forEach(function(value, key){
+        if (key === '_subject' || key === 'Protocolo') return;
+        if (key === 'Possui') { possui.push(value); return; }
+        if (value && String(value).trim() !== '') lines.push("*" + key + ":* " + value);
+      });
+      if (possui.length) lines.push("*Já possui:* " + possui.join(', '));
+      var msg = encodeURIComponent(lines.join("\n"));
+      window.open("https://wa.me/" + WHATSAPP + "?text=" + msg, "_blank");
+      show('ok');
+    } catch(err) {
+      show('err');
+    }
   });
 
   function show(which){
