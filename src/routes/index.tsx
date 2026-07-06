@@ -1092,37 +1092,21 @@ function Index() {
             </p>
           </div>
 
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {[
-              "NR-01 – Gerenciamento de Riscos Ocupacionais (GRO/PGR)",
-              "Riscos Psicossociais no Trabalho (NR-1 / FRPRT)",
-              "NR-05 – Comissão Interna de Prevenção de Acidentes (CIPA)",
-              "NR-06 – Equipamentos de Proteção Individual (EPI)",
-              "NR-07 – PCMSO",
-              "NR-10 – Segurança em Instalações e Serviços em Eletricidade",
-              "NR-11 – Movimentação e Transporte de Materiais",
-              "NR-12 – Segurança em Máquinas e Equipamentos",
-              "NR-13 – Caldeiras e Vasos de Pressão",
-              "NR-18 – Condições e Meio Ambiente na Construção Civil",
-              "NR-20 – Segurança com Inflamáveis e Combustíveis",
-              "NR-23 – Proteção e Combate a Incêndio",
-              "NR-26 – Sinalização de Segurança e Produtos Químicos",
-              "NR-33 – Espaço Confinado",
-              "NR-35 – Trabalho em Altura",
-              "Integração de Segurança para Colaboradores e Terceiros",
-              "Gestão de Resíduos e Meio Ambiente",
-              "Atendimento a Emergências",
-              "Primeiros Socorros",
-              "Formação de Auditor Interno ISO 14001 e ISO 45001",
-              "Percepção de Riscos e Comportamento Seguro",
-              "Treinamentos personalizados conforme necessidade da empresa",
-            ].map((item) => (
-              <div key={item} className="flex items-start gap-3 bg-card border border-border rounded-xl p-5 hover:border-[color:var(--brand)] hover:shadow-md transition-all">
-                <GraduationCap className="h-5 w-5 text-[color:var(--brand)] shrink-0 mt-0.5" strokeWidth={2.2} />
-                <span className="text-sm font-medium leading-snug">{item}</span>
-              </div>
-            ))}
+          <div className="mt-10 max-w-3xl">
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+              Oferecemos treinamentos em <strong className="text-foreground">Normas Regulamentadoras (NRs)</strong>, <strong className="text-foreground">ISO 14001</strong> e <strong className="text-foreground">ISO 45001</strong>, com turmas online, presenciais e <em className="not-italic font-medium text-foreground">in company</em> em Contagem, Belo Horizonte e toda Minas Gerais.
+            </p>
+
+            <a
+              href="https://treinamentos.aemconsult.com.br/catalogo"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 text-sm font-semibold bg-brand-gradient text-white shadow-md hover:shadow-lg transition"
+            >
+              <GraduationCap className="h-4 w-4" /> Ver catálogo completo de treinamentos
+            </a>
           </div>
+
 
           <div className="mt-16 bg-brand-gradient rounded-2xl p-8 lg:p-10 text-white relative overflow-hidden">
             <GraduationCap className="absolute -right-6 -bottom-6 h-40 w-40 text-white/5" />
